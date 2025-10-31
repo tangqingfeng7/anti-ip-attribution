@@ -15,6 +15,10 @@ payload:
 - DOMAIN,ac.dun.163.com
 - DOMAIN-SUFFIX,music.126.net
 - DOMAIN-SUFFIX,laiqukankan.com
+- DOMAIN-SUFFIX,lofter.com
+- DOMAIN,yaolu.yuedu.163.com
+- DOMAIN-SUFFIX,lf127.net,DIRECT
+- DOMAIN-SUFFIX,music.163.com.163jiasu.com
 - DOMAIN-SUFFIX,music.ntes53.netease.com
 - IP-CIDR,101.71.154.241/32,no-resolve
 - IP-CIDR,103.126.92.132/32,no-resolve
@@ -27,11 +31,7 @@ payload:
 - IP-CIDR,59.111.160.195/32,no-resolve
 - IP-CIDR,59.111.19.33/32,no-resolve
 - IP-CIDR,59.111.19.53/32,no-resolve
-- DOMAIN-SUFFIX,music.163.com.163jiasu.com
 - IP-CIDR,119.36.90.80/32,no-resolve
 - IP-CIDR,111.48.137.146/32,no-resolve
 - IP-CIDR,1.95.21.35/32,no-resolve
 - IP-CIDR,47.100.127.239/32,no-resolve
-- DOMAIN-SUFFIX,lofter.com
-- DOMAIN,yaolu.yuedu.163.com
-- DOMAIN-SUFFIX,lf127.net,DIRECT

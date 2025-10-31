@@ -1,5 +1,25 @@
+# 针对部分网站显示IP归属地的分流规则
+# anti-ip-attribution rule-provider.yaml v0.3.1 d4a828fd5aa22dfc4368311ab0846d3349b8409d
+# https://github.com/SunsetMkt/anti-ip-attribution
+# 适用于Clash的Rule Provider功能，详见https://lancellc.gitbook.io/clash/clash-config-file/rule-provider
+payload:
 - DOMAIN,httpdns.bilivideo.com,REJECT
+
+- DOMAIN-SUFFIX,biliapi.net
+- DOMAIN-SUFFIX,biliapi.com
+- DOMAIN-SUFFIX,bilibili.com
+- DOMAIN-SUFFIX,bilivideo.com,DIRECT
+- DOMAIN-SUFFIX,akamaized.net,DIRECT
+- DOMAIN-SUFFIX,hdslb.com,DIRECT
+- DOMAIN-SUFFIX,szbdyd.com,DIRECT
+- DOMAIN-SUFFIX,weibo.cn
+- DOMAIN-SUFFIX,weibo.com
+- DOMAIN-SUFFIX,weibocdn.com
+- DOMAIN-SUFFIX,wbimg.cn
+- DOMAIN-SUFFIX,wbimg.com
+- DOMAIN-SUFFIX,sinaimg.cn
 - IP-CIDR,47.101.175.206/32,REJECT
+- IP-CIDR,203.107.1.0/24
 - IP-CIDR,47.100.123.169/32,REJECT
 - IP-CIDR,120.46.169.234/32,REJECT
 - IP-CIDR,121.36.72.124/32,REJECT
@@ -15,18 +35,3 @@
 - IP-CIDR,116.63.10.31/32,REJECT
 - IP-CIDR,112.64.218.119/32,REJECT
 - IP-CIDR,112.65.200.117/32,REJECT
-- DOMAIN-SUFFIX,biliapi.net
-- DOMAIN-SUFFIX,biliapi.com
-- DOMAIN-SUFFIX,bilibili.com
-- IP-CIDR,203.107.1.0/24
-- DOMAIN-SUFFIX,bilivideo.com,DIRECT
-- DOMAIN-SUFFIX,akamaized.net,DIRECT
-- DOMAIN-SUFFIX,hdslb.com,DIRECT
-- DOMAIN-SUFFIX,szbdyd.com,DIRECT
-- DOMAIN-SUFFIX,weibo.cn
-- DOMAIN-SUFFIX,weibo.com
-- DOMAIN-SUFFIX,weibocdn.com
-- DOMAIN-SUFFIX,wbimg.cn
-- DOMAIN-SUFFIX,wbimg.com
-- DOMAIN-SUFFIX,sinaimg.cn
-- DOMAIN-KEYWORD,weibo
