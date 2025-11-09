@@ -1,0 +1,21 @@
+# 什么值得买 SMZDM
+# 消费决策平台
+
+rules:
+  # 主域名
+  - DOMAIN-SUFFIX,smzdm.com
+  
+  # API域名
+  - DOMAIN,api.smzdm.com
+  - DOMAIN,haojia-api.smzdm.com
+  - DOMAIN,s-api.smzdm.com
+  - DOMAIN,post-api.smzdm.com
+  
+  # 社区相关
+  - DOMAIN,zhiyou.smzdm.com
+  - DOMAIN,post.smzdm.com
+  
+  # 图片CDN直连
+  - DOMAIN,res.smzdm.com,DIRECT
+  - DOMAIN,qny.smzdm.com,DIRECT
+

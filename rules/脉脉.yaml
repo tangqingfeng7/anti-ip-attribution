@@ -1,0 +1,15 @@
+# 脉脉 Maimai
+# 职场社交平台
+
+rules:
+  # 主域名
+  - DOMAIN-SUFFIX,maimai.cn
+  
+  # API域名
+  - DOMAIN,api.maimai.cn
+  - DOMAIN,open.taou.com
+  - DOMAIN,maimai-api.maimai.cn
+  
+  # 图片CDN直连
+  - DOMAIN,img.maimai.cn,DIRECT
+

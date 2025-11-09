@@ -1,0 +1,15 @@
+# 雪球 Xueqiu
+# 投资者社交网络
+
+rules:
+  # 主域名
+  - DOMAIN-SUFFIX,xueqiu.com
+  
+  # API域名
+  - DOMAIN,api.xueqiu.com
+  - DOMAIN,stock.xueqiu.com
+  - DOMAIN,xqimg.imedao.com,DIRECT # 图片CDN直连
+  
+  # 社区相关
+  - DOMAIN,www.xueqiu.com
+

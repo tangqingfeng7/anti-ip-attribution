@@ -1,0 +1,23 @@
+# 汽车之家 Autohome
+# 汽车互联网平台
+
+rules:
+  # 主域名
+  - DOMAIN-SUFFIX,autohome.com.cn
+  
+  # API域名
+  - DOMAIN,api.autohome.com.cn
+  - DOMAIN,mapi.autohome.com.cn
+  
+  # 论坛相关
+  - DOMAIN,club.autohome.com.cn
+  - DOMAIN,reply.autohome.com.cn
+  - DOMAIN,comment.autohome.com.cn
+  
+  # 二手车
+  - DOMAIN,dealer.autohome.com.cn
+  
+  # 图片CDN直连
+  - DOMAIN,x.autoimg.cn,DIRECT
+  - DOMAIN,www2.autoimg.cn,DIRECT
+

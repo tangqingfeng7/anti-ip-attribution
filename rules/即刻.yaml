@@ -1,0 +1,16 @@
+# 即刻 Jike
+# 即刻是一个基于兴趣的社交网络
+
+rules:
+  # 即刻主域名
+  - DOMAIN-SUFFIX,okjike.com
+  - DOMAIN-SUFFIX,ruguoapp.com
+  
+  # API域名
+  - DOMAIN,api.okjike.com
+  - DOMAIN,app-api.okjike.com
+  
+  # 图片CDN可以直连
+  - DOMAIN,cdnv2.ruguoapp.com,DIRECT
+  - DOMAIN,img.okjike.com,DIRECT
+

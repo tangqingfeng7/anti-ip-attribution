@@ -431,3 +431,109 @@ config:
         - DOMAIN,bbs.mobileapi.hupu.com
         # ======= IT之家 ======= #
         - DOMAIN,cmt.ithome.com
+        # ======= 即刻 ======= #
+        # 即刻App
+        - DOMAIN-SUFFIX,okjike.com
+        - DOMAIN-SUFFIX,ruguoapp.com
+        # ======= 什么值得买 ======= #
+        # 什么值得买
+        - DOMAIN-SUFFIX,smzdm.com
+        - DOMAIN,api.smzdm.com
+        - DOMAIN,haojia-api.smzdm.com
+        - DOMAIN,s-api.smzdm.com
+        # ======= B站漫画 ======= #
+        # 哔哩哔哩漫画
+        - DOMAIN,manga.bilibili.com
+        - DOMAIN,api-manga.bilibili.com
+        # ======= 掌上英雄联盟 ======= #
+        # 掌上英雄联盟
+        - DOMAIN-SUFFIX,lolapp.qq.com
+        - DOMAIN,comm.lolapp.qq.com
+        # ======= 最右 ======= #
+        # 最右App
+        - DOMAIN-SUFFIX,izuiyou.com
+        - DOMAIN,api.izuiyou.com
+        # ======= 皮皮虾 ======= #
+        # 皮皮虾
+        - DOMAIN-SUFFIX,pipix.com
+        - DOMAIN-SUFFIX,pipixia.com
+        # ======= 汽车之家 ======= #
+        # 汽车之家论坛
+        - DOMAIN-SUFFIX,autohome.com.cn
+        - DOMAIN,api.autohome.com.cn
+        - DOMAIN,club.autohome.com.cn
+        # ======= CSDN ======= #
+        # CSDN技术社区
+        - DOMAIN-SUFFIX,csdn.net
+        - DOMAIN,blog.csdn.net
+        - DOMAIN,bbs.csdn.net
+        # ======= 简书 ======= #
+        # 简书
+        - DOMAIN-SUFFIX,jianshu.com
+        - DOMAIN,www.jianshu.com
+        - DOMAIN,jianshu.io
+        # ======= V2EX ======= #
+        # V2EX技术社区
+        - DOMAIN,www.v2ex.com
+        - DOMAIN,v2ex.com
+        - DOMAIN,v2ex.assets.uxengine.net,DIRECT # 静态资源直连
+        # ======= 马蜂窝 ======= #
+        # 马蜂窝旅游
+        - DOMAIN-SUFFIX,mafengwo.net
+        - DOMAIN,www.mafengwo.cn
+        - DOMAIN,mapi.mafengwo.cn
+        # ======= 得物 ======= #
+        # 得物App
+        - DOMAIN-SUFFIX,dewu.com
+        - DOMAIN-SUFFIX,poizon.com
+        - DOMAIN,app.dewu.com
+        - DOMAIN,api.poizon.com
+        # ======= 贝壳找房 ======= #
+        # 贝壳找房
+        - DOMAIN-SUFFIX,ke.com
+        - DOMAIN,m.ke.com
+        - DOMAIN,app.api.ke.com
+        # ======= 雪球 ======= #
+        # 雪球财经社区
+        - DOMAIN-SUFFIX,xueqiu.com
+        - DOMAIN,api.xueqiu.com
+        - DOMAIN,stock.xueqiu.com
+        # ======= 虎嗅 ======= #
+        # 虎嗅网
+        - DOMAIN-SUFFIX,huxiu.com
+        - DOMAIN,www.huxiu.com
+        # ======= 36氪 ======= #
+        # 36氪
+        - DOMAIN-SUFFIX,36kr.com
+        - DOMAIN,www.36kr.com
+        - DOMAIN,api.36kr.com
+        # ======= 脉脉 ======= #
+        # 脉脉职场社交
+        - DOMAIN-SUFFIX,maimai.cn
+        - DOMAIN,api.maimai.cn
+        - DOMAIN,open.taou.com
+        # ======= 虎扑识货 ======= #
+        # 虎扑识货
+        - DOMAIN-SUFFIX,shihuo.cn
+        - DOMAIN,api.shihuo.cn
+        # ======= 什么值得买 ======= #
+        # 值得买社区
+        - DOMAIN,zhiyou.smzdm.com
+        - DOMAIN,post.smzdm.com
+        # ======= 汽车之家二手车 ======= #
+        # 汽车之家二手车
+        - DOMAIN,mapi.autohome.com.cn
+        - DOMAIN,dealer.autohome.com.cn
+        # ======= 懂车帝 ======= #
+        # 懂车帝
+        - DOMAIN-SUFFIX,dongchedi.com
+        - DOMAIN,www.dongchedi.com
+        # ======= 易车 ======= #
+        # 易车网
+        - DOMAIN-SUFFIX,yiche.com
+        - DOMAIN,api.yiche.com
+        - DOMAIN,club.yiche.com
+        # ======= 汽车之家论坛 ======= #
+        # 汽车之家论坛评论
+        - DOMAIN,reply.autohome.com.cn
+        - DOMAIN,comment.autohome.com.cn

@@ -1,0 +1,20 @@
+# 得物 Dewu (原毒App Poizon)
+# 潮流网购社区
+
+rules:
+  # 主域名
+  - DOMAIN-SUFFIX,dewu.com
+  - DOMAIN-SUFFIX,poizon.com
+  
+  # API域名
+  - DOMAIN,app.dewu.com
+  - DOMAIN,api.poizon.com
+  - DOMAIN,app-api.dewu.com
+  
+  # 社区相关
+  - DOMAIN,community.dewu.com
+  
+  # 图片CDN直连
+  - DOMAIN,cdn.poizon.com,DIRECT
+  - DOMAIN,img.dewu.com,DIRECT
+

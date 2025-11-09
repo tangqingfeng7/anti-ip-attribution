@@ -1,0 +1,18 @@
+# 懂车帝 Dongchedi
+# 汽车资讯和社区平台
+
+rules:
+  # 主域名
+  - DOMAIN-SUFFIX,dongchedi.com
+  
+  # API域名
+  - DOMAIN,www.dongchedi.com
+  - DOMAIN,api.dongchedi.com
+  
+  # 社区相关
+  - DOMAIN,forum.dongchedi.com
+  
+  # 图片视频CDN直连
+  - DOMAIN,p3-dcd.byteimg.com,DIRECT
+  - DOMAIN,p9-dcd.byteimg.com,DIRECT
+

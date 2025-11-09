@@ -1,0 +1,15 @@
+# 简书 Jianshu
+# 创作社区
+
+rules:
+  # 主域名
+  - DOMAIN-SUFFIX,jianshu.com
+  - DOMAIN,jianshu.io
+  
+  # API域名
+  - DOMAIN,www.jianshu.com
+  
+  # 图片CDN直连
+  - DOMAIN,upload.jianshu.io,DIRECT
+  - DOMAIN,cdn2.jianshu.io,DIRECT
+

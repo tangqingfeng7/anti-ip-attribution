@@ -1,0 +1,16 @@
+# 马蜂窝 Mafengwo
+# 旅游社交平台
+
+rules:
+  # 主域名
+  - DOMAIN-SUFFIX,mafengwo.net
+  - DOMAIN,www.mafengwo.cn
+  
+  # API域名
+  - DOMAIN,mapi.mafengwo.cn
+  - DOMAIN,pagelet.mafengwo.cn
+  
+  # 图片CDN直连
+  - DOMAIN,images.mafengwo.net,DIRECT
+  - DOMAIN,n.sinaimg.cn,DIRECT
+
