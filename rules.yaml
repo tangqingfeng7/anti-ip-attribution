@@ -537,3 +537,25 @@ config:
         # 汽车之家论坛评论
         - DOMAIN,reply.autohome.com.cn
         - DOMAIN,comment.autohome.com.cn
+        # ======= Steam ======= #
+        # Steam社区和商店
+        # Steam社区评论、个人资料等需要代理
+        - DOMAIN-SUFFIX,steamcommunity.com
+        - DOMAIN,store.steampowered.com
+        - DOMAIN,api.steampowered.com
+        - DOMAIN,help.steampowered.com
+        - DOMAIN,login.steampowered.com
+        - DOMAIN,store.akamai.steamstatic.com
+        - DOMAIN,community.akamai.steamstatic.com
+        - DOMAIN,community.cloudflare.steamstatic.com
+        - DOMAIN-SUFFIX,steamusercontent.com
+        # Steam CDN内容直连，提高下载速度
+        - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+        - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
+        - DOMAIN,cdn.akamai.steamstatic.com,DIRECT
+        - DOMAIN,cdn.cloudflare.steamstatic.com,DIRECT
+        - DOMAIN-SUFFIX,steamchina.com,DIRECT
+        - DOMAIN,st.dl.eccdnx.com,DIRECT
+        - DOMAIN,st.dl.bscstorage.net,DIRECT
+        - DOMAIN,st.dl.pinyuncloud.com,DIRECT
+        - DOMAIN-SUFFIX,steamvideo.com,DIRECT

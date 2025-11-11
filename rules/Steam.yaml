@@ -1,0 +1,45 @@
+# Steam 游戏平台
+# Steam社区、商店、评论区等功能
+
+rules:
+  # Steam社区 - 需要代理以访问社区功能和评论
+  - DOMAIN-SUFFIX,steamcommunity.com
+  
+  # Steam商店和API
+  - DOMAIN,store.steampowered.com
+  - DOMAIN,api.steampowered.com
+  - DOMAIN,help.steampowered.com
+  
+  # Steam登录和账户
+  - DOMAIN,login.steampowered.com
+  - DOMAIN,store.akamai.steamstatic.com
+  
+  # Steam社区相关域名
+  - DOMAIN,community.akamai.steamstatic.com
+  - DOMAIN,community.cloudflare.steamstatic.com
+  
+  # Steam用户内容
+  - DOMAIN-SUFFIX,steamusercontent.com
+  
+  # Steam统计和追踪
+  - DOMAIN,steamstat.us
+  
+  # Steam CDN - 建议直连以提高下载速度
+  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+  - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
+  - DOMAIN,cdn.akamai.steamstatic.com,DIRECT
+  - DOMAIN,cdn.cloudflare.steamstatic.com,DIRECT
+  
+  # Steam中国CDN - 直连
+  - DOMAIN-SUFFIX,steamchina.com,DIRECT
+  - DOMAIN,st.dl.eccdnx.com,DIRECT
+  - DOMAIN,st.dl.bscstorage.net,DIRECT
+  - DOMAIN,st.dl.pinyuncloud.com,DIRECT
+  
+  # Steam视频CDN - 直连
+  - DOMAIN-SUFFIX,steamvideo.com,DIRECT
+  
+  # Steam下载服务器 - 直连
+  - DOMAIN-KEYWORD,steamcontent
+  - DOMAIN-KEYWORD,steamcdn
+
