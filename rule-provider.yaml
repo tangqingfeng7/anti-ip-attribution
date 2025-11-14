@@ -287,3 +287,4 @@ payload:
 - DOMAIN,ti.qq.com
 - IP-CIDR,183.47.107.174/32,no-resolve
 - IP-CIDR,183.2.144.33/32,no-resolve
+- IP-CIDR,120.232.130.46/32,no-resolve
