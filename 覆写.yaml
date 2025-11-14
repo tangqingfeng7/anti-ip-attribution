@@ -408,14 +408,17 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bypass.png
     type: select
     include-all: true
-    filter: (CN|电信|联通|移动)
+    filter: (港|HK|Hong Kong|台|TW|Taiwan|新加坡|坡|狮城|SG|Singapore)
     proxies:
-      - 国内流量
       - 手动切换
       - 手动选择备用
       - 手动选择2
       - 手动选择3
       - 自建节点
+      - 香港节点
+      - 台湾节点
+      - 狮城节点
+      - 国内流量
   - name: DisneyPlus
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Disney+.png
     type: select

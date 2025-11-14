@@ -274,6 +274,10 @@ payload:
 - DOMAIN,otheve.beacon.qq.com
 - DOMAIN,mdt.qq.com
 - DOMAIN,report.qq.com
+- DOMAIN,vgdt.qq.com
+- DOMAIN,ipv4.gdt.qq.com
+- DOMAIN,rpt.gdt.qq.com
+- DOMAIN,tmead.y.qq.com
 - DOMAIN-KEYWORD,qqmusic
 - DOMAIN-KEYWORD,music.tc.qq
 - DOMAIN-KEYWORD,music.qq
