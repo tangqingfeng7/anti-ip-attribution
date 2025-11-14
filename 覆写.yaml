@@ -348,6 +348,7 @@ proxy-groups:
     icon: https://git-scm.cn/images/logos/logomark-black@2x.png
     type: select
     proxies:
+      - DIRECT
       - 国内流量
       - 国外流量
       - 手动切换
