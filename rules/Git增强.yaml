@@ -60,3 +60,11 @@ payload:
   - IP-CIDR,20.175.192.0/24,no-resolve
   - IP-CIDR,20.118.139.0/24,no-resolve
   - IP-CIDR,4.208.26.0/24,no-resolve
+  
+  # Git 进程匹配 (仅 Clash.Meta/mihomo 支持)
+  - PROCESS-NAME,git.exe
+  - PROCESS-NAME,git-lfs.exe
+  - PROCESS-NAME,git-credential-manager.exe
+  - PROCESS-NAME,GitHubDesktop.exe
+  - PROCESS-NAME,GitHub.Authentication.exe
+  - PROCESS-NAME,curl.exe
