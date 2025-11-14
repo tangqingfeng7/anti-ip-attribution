@@ -4,6 +4,8 @@ dns:
   listen: 0.0.0.0:53
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  respect-rules: true
   fake-ip-filter:
     - "*.lan"
     - "*.localdomain"
@@ -107,32 +109,75 @@ dns:
     - "shark007.net"
   default-nameserver:
     - 223.5.5.5
+    - 223.6.6.6
     - 119.29.29.29
-    - 114.114.114.114
+    - 180.76.76.76
   nameserver:
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-    - https://1.12.12.12/dns-query
-    - https://120.53.53.53/dns-query
   fallback:
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+    - https://8.8.8.8/dns-query
+    - https://8.8.4.4/dns-query
     - https://dns.google/dns-query
     - https://cloudflare-dns.com/dns-query
-    - https://dns.quad9.net/dns-query
-    - tls://8.8.8.8:853
-    - tls://1.1.1.1:853
+  nameserver-policy:
+    "geosite:cn":
+      - https://223.5.5.5/dns-query
+      - https://223.6.6.6/dns-query
+    "geosite:gfw":
+      - https://1.1.1.1/dns-query
+      - https://8.8.8.8/dns-query
+    "+.github.com,+.githubusercontent.com,+.github.io,+.githubassets.com":
+      - https://1.1.1.1/dns-query
+      - https://8.8.8.8/dns-query
+    "+.google.com,+.googleapis.com,+.gstatic.com,+.youtube.com":
+      - https://8.8.8.8/dns-query
+      - https://8.8.4.4/dns-query
+    "+.twitter.com,+.facebook.com,+.instagram.com":
+      - https://1.1.1.1/dns-query
+      - https://1.0.0.1/dns-query
+    "+.telegram.org,+.t.me":
+      - https://1.1.1.1/dns-query
+      - https://8.8.8.8/dns-query
   fallback-filter:
     geoip: true
     geoip-code: CN
+    geosite:
+      - gfw
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
+      - 127.0.0.1/32
+      - 100.64.0.0/10
     domain:
       - "+.google.com"
+      - "+.googleapis.com"
+      - "+.gstatic.com"
+      - "+.googleusercontent.com"
+      - "+.gvt1.com"
       - "+.facebook.com"
+      - "+.fbcdn.net"
       - "+.youtube.com"
+      - "+.ytimg.com"
+      - "+.googlevideo.com"
       - "+.twitter.com"
+      - "+.twimg.com"
       - "+.github.com"
       - "+.githubusercontent.com"
+      - "+.github.io"
+      - "+.githubassets.com"
+      - "+.gitlab.com"
+      - "+.telegram.org"
+      - "+.t.me"
+      - "+.instagram.com"
+      - "+.whatsapp.com"
+      - "+.reddit.com"
+      - "+.wikipedia.org"
+      - "+.cloudflare.com"
 
 proxy-groups:
   - name: 节点选择
