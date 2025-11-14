@@ -283,3 +283,6 @@ payload:
 - DOMAIN-KEYWORD,qqmusic
 - DOMAIN-KEYWORD,music.tc.qq
 - DOMAIN-KEYWORD,music.qq
+- DOMAIN,qun.qq.com
+- DOMAIN,ti.qq.com
+- IP-CIDR,183.47.107.174/32,no-resolve
