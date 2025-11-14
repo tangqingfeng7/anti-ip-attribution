@@ -770,7 +770,7 @@ rule-providers:
     format: yaml
     type: http
   GitEnhanced:
-    url: https://raw.githubusercontent.com/tangqingfeng7/anti-ip-attribution/refs/heads/main/rules/Git%E5%A2%9E%E5%BC%BA.yaml
+    url: https://raw.githubusercontent.com/tangqingfeng7/anti-ip-attribution/refs/heads/main/rules/Git.yaml
     path: ./ruleset/GitEnhanced.yaml
     behavior: classical
     interval: 86400
