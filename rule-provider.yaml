@@ -243,3 +243,7 @@ payload:
 - DOMAIN,connect.qq.com
 - DOMAIN,graph.qq.com
 - DOMAIN,openmobile.qq.com
+- DOMAIN,tpstelemetry.tencent.com
+- DOMAIN-SUFFIX,tpstelemetry.tencent.com
+- DOMAIN-KEYWORD,tpstelemetry
+- DOMAIN-KEYWORD,telemetry.tencent
