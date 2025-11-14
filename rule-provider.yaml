@@ -278,6 +278,8 @@ payload:
 - DOMAIN,ipv4.gdt.qq.com
 - DOMAIN,rpt.gdt.qq.com
 - DOMAIN,tmead.y.qq.com
+- IP-CIDR,14.116.237.185/32,no-resolve
+- IP-CIDR,121.14.22.109/32,no-resolve
 - DOMAIN-KEYWORD,qqmusic
 - DOMAIN-KEYWORD,music.tc.qq
 - DOMAIN-KEYWORD,music.qq
