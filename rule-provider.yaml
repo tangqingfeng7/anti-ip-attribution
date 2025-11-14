@@ -285,7 +285,10 @@ payload:
 - DOMAIN-KEYWORD,music.qq
 - DOMAIN,qun.qq.com
 - DOMAIN,ti.qq.com
+- DOMAIN,business-ad.cdn-go.cn
 - IP-CIDR,183.47.107.174/32,no-resolve
 - IP-CIDR,183.2.144.33/32,no-resolve
 - IP-CIDR,120.232.130.46/32,no-resolve
 - IP-CIDR,36.147.17.177/32,no-resolve
+- IP-CIDR,120.232.65.165/32,no-resolve
+- IP-CIDR,120.233.38.110/32,no-resolve
