@@ -725,11 +725,12 @@ rule-providers:
     format: yaml
     type: http
   GitEnhanced:
-    path: ./rules/Git增强.yaml
+    url: https://raw.githubusercontent.com/tangqingfeng7/anti-ip-attribution/refs/heads/main/rules/Git%E5%A2%9E%E5%BC%BA.yaml
+    path: ./ruleset/GitEnhanced.yaml
     behavior: classical
     interval: 86400
     format: yaml
-    type: file
+    type: http
   Inside:
     url: https://raw.githubusercontent.com/cutethotw/ClashRule/main/Rule/Inside.list
     path: ./ruleset/Inside.list
