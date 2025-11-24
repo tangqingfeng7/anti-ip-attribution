@@ -1,0 +1,46 @@
+# 针对部分网站显示IP归属地的分流规则
+# anti-ip-attribution rules.yaml
+# https://github.com/SunsetMkt/anti-ip-attribution
+# 此文件用于记录用于生成其他配置文件的规则，任何更改仅需在此修改。
+# Actions会自动生成其他配置文件。
+# 由于技术限制，只能实现精确到域名的分流规则，无法精确到路径。
+# 配置规范举例：
+# DOMAIN,example.com
+# DOMAIN-SUFFIX,example.com,REJECT
+# 注意"DOMAIN"大写，不用"HOST"，除"REJECT"外不要添加规则。
+config:
+    name: "anti-ip-attribution" # 项目名
+    version: "v0.3.1" # 版本号
+    url: "https://github.com/SunsetMkt/anti-ip-attribution" # 项目地址
+    description: "针对部分网站显示IP归属地的分流规则" # 项目描述
+    rules: # 规则列表
+        
+# ======= Oopz ======= #
+
+        # Oopz语音软件主域名
+        - DOMAIN,lp.open.weixin.qq.com
+        - DOMAIN,open.weixin.qq.com
+        - DOMAIN,support.weixin.qq.com
+        - DOMAIN,gateway.oopz.cn
+        - DOMAIN,tracking.oopz.cn
+        - DOMAIN,update.oopz.cn
+        - DOMAIN,ws.oopz.cn
+        - DOMAIN-SUFFIX,oopz.com
+        - DOMAIN-SUFFIX,oopz.cn
+        - DOMAIN-SUFFIX,oopzapp.com
+        - DOMAIN-KEYWORD,oopz
+        # Oopz使用的第三方服务
+        - DOMAIN-SUFFIX,agora.io # 声网实时音视频服务
+        - DOMAIN-KEYWORD,ap-tds-tis.agora
+        # 腾讯云COS日志服务
+        - DOMAIN-KEYWORD,client-logs-1324166748.cos
+        # Oopz服务器IP地址
+        - IP-CIDR,101.251.217.28/32,no-resolve
+        - IP-CIDR,103.228.162.61/32,no-resolve
+        - IP-CIDR,111.19.217.136/32,no-resolve
+        - IP-CIDR,111.19.217.141/32,no-resolve
+        - IP-CIDR,111.19.217.151/32,no-resolve
+        - IP-CIDR,111.19.217.157/32,no-resolve
+        - IP-CIDR,120.232.65.165/32,no-resolve
+        - IP-CIDR,139.159.110.148/32,no-resolve
+        - IP-CIDR,154.86.157.131/32,no-resolve
