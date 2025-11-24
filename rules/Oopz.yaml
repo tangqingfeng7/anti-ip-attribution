@@ -2,11 +2,11 @@
 # AUTHOR: tangqingfeng7
 # REPO: https://github.com/tangqingfeng7/anti-ip-attribution
 # UPDATED: 2024-11-24
-# DOMAIN: 7
+# DOMAIN: 9
 # DOMAIN-SUFFIX: 4
 # DOMAIN-KEYWORD: 3
-# IP-CIDR: 9
-# TOTAL: 23
+# IP-CIDR: 13
+# TOTAL: 29
 payload:
   - DOMAIN,lp.open.weixin.qq.com
   - DOMAIN,open.weixin.qq.com
@@ -15,6 +15,8 @@ payload:
   - DOMAIN,tracking.oopz.cn
   - DOMAIN,update.oopz.cn
   - DOMAIN,ws.oopz.cn
+  - DOMAIN,staticcdn.oopz.cn
+  - DOMAIN,usercdn.oopz.cn
   - DOMAIN-SUFFIX,oopz.com
   - DOMAIN-SUFFIX,oopz.cn
   - DOMAIN-SUFFIX,oopzapp.com
@@ -31,3 +33,7 @@ payload:
   - IP-CIDR,120.232.65.165/32,no-resolve
   - IP-CIDR,139.159.110.148/32,no-resolve
   - IP-CIDR,154.86.157.131/32,no-resolve
+  - IP-CIDR,150.138.182.109/32,no-resolve
+  - IP-CIDR,112.13.206.196/32,no-resolve
+  - IP-CIDR,101.132.108.165/32,no-resolve
+  - IP-CIDR,18.176.162.64/32,no-resolve

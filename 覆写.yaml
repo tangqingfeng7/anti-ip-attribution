@@ -2,7 +2,7 @@ mixed-port: 7890
 allow-lan: true
 bind-address: '*'
 mode: rule
-log-level: info
+log-level: debug
 ipv6: false
 external-controller: '127.0.0.1:9090'
 external-ui: ui
@@ -111,6 +111,21 @@ proxy-groups:
     type: select
     include-all: true
     filter: (自建|Craig|hk-vmess|HY|海晏河清|backup|_)
+  - name: IP归属地伪装
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bypass.png
+    type: select
+    include-all: true
+    filter: (港|HK|Hong Kong|台|TW|Taiwan|新加坡|坡|狮城|SG|Singapore)
+    proxies:
+      - 手动切换
+      - 手动选择备用
+      - 手动选择2
+      - 手动选择3
+      - 自建节点
+      - 香港节点
+      - 台湾节点
+      - 狮城节点
+      - 国内流量
   - name: 电报消息
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
     type: select
@@ -353,21 +368,6 @@ proxy-groups:
       - 手动选择2
       - 手动选择3
       - 自建节点
-  - name: IP归属地伪装
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bypass.png
-    type: select
-    include-all: true
-    filter: (港|HK|Hong Kong|台|TW|Taiwan|新加坡|坡|狮城|SG|Singapore)
-    proxies:
-      - 手动切换
-      - 手动选择备用
-      - 手动选择2
-      - 手动选择3
-      - 自建节点
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 国内流量
   - name: DisneyPlus
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Disney+.png
     type: select
