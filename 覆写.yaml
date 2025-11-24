@@ -289,6 +289,22 @@ proxy-groups:
       - 美国节点
       - 国内流量
       - DIRECT
+  - name: Docker
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/docker.png
+    type: select
+    proxies:
+      - 国外流量
+      - 自动选择
+      - 手动切换
+      - 手动选择备用
+      - 手动选择2
+      - 手动选择3
+      - 自建节点
+      - 香港节点
+      - 狮城节点
+      - 美国节点
+      - 国内流量
+      - DIRECT
   - name: 国内流量
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png
     type: select
@@ -629,6 +645,7 @@ proxy-groups:
       - GitHub
       - GitLab
       - Git
+      - Docker
       - 国内流量
       - Steam
       - 国外流量
@@ -668,6 +685,13 @@ rule-providers:
   GitEnhanced:
     url: https://raw.githubusercontent.com/tangqingfeng7/anti-ip-attribution/refs/heads/main/rules/Git.yaml
     path: ./ruleset/GitEnhanced.yaml
+    behavior: classical
+    interval: 86400
+    format: yaml
+    type: http
+  Docker:
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Docker/Docker.yaml
+    path: ./ruleset/Docker.yaml
     behavior: classical
     interval: 86400
     format: yaml
@@ -763,6 +787,12 @@ rule-providers:
     interval: 86400
     format: yaml
     type: http
+  Oopz:
+    path: ./rules/Oopz.yaml
+    behavior: classical
+    interval: 86400
+    format: yaml
+    type: file
   PikPak:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml
     path: ./ruleset/PikPak.yaml
@@ -1098,6 +1128,7 @@ rules:
   - "RULE-SET,GitHub,GitHub"
   - "RULE-SET,GitLab,GitLab"
   - "RULE-SET,Gitee,Git"
+  - "RULE-SET,Docker,Docker"
   - "RULE-SET,Inside,国内流量"
   - "RULE-SET,SteamCN,国内流量"
   - "RULE-SET,Steam,Steam"
@@ -1111,6 +1142,7 @@ rules:
   - "RULE-SET,Lan,国内流量"
   - "RULE-SET,UnBan,国内流量"
   - "RULE-SET,AntiIPAttribution,IP归属地伪装"
+  - "RULE-SET,Oopz,IP归属地伪装"
   - "RULE-SET,PikPak,国外流量"
   - "RULE-SET,Hijacking,应用净化"
   - "RULE-SET,Privacy,广告拦截"
