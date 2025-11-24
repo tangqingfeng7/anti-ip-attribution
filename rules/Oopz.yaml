@@ -3,10 +3,10 @@
 # REPO: https://github.com/tangqingfeng7/anti-ip-attribution
 # UPDATED: 2024-11-24
 # DOMAIN: 9
-# DOMAIN-SUFFIX: 4
-# DOMAIN-KEYWORD: 3
+# DOMAIN-SUFFIX: 5
+# DOMAIN-KEYWORD: 4
 # IP-CIDR: 13
-# TOTAL: 29
+# TOTAL: 31
 payload:
   - DOMAIN,lp.open.weixin.qq.com
   - DOMAIN,open.weixin.qq.com
@@ -24,6 +24,8 @@ payload:
   - DOMAIN-KEYWORD,oopz
   - DOMAIN-KEYWORD,ap-tds-tis.agora
   - DOMAIN-KEYWORD,client-logs-1324166748.cos
+  - DOMAIN-KEYWORD,trtc.time.tencent-cloud
+  - DOMAIN-SUFFIX,xianniu.com
   - IP-CIDR,101.251.217.28/32,no-resolve
   - IP-CIDR,103.228.162.61/32,no-resolve
   - IP-CIDR,111.19.217.136/32,no-resolve

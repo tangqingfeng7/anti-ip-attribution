@@ -1125,6 +1125,7 @@ rule-providers:
     type: http
 
 rules:
+  - "PROCESS-NAME,oopz.exe,IP归属地伪装"
   - "RULE-SET,GitEnhanced,Git"
   - "RULE-SET,GitHub,GitHub"
   - "RULE-SET,GitLab,GitLab"
