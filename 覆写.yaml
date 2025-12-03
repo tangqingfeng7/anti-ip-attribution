@@ -305,38 +305,6 @@ proxy-groups:
       - 美国节点
       - 国内流量
       - DIRECT
-  - name: GitLab
-    icon: https://images.icon-icons.com/2107/PNG/512/file_type_gitlab_icon_130579.png
-    type: select
-    proxies:
-      - 国外流量
-      - 自动选择
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-      - 自建节点
-      - 香港节点
-      - 狮城节点
-      - 美国节点
-      - 国内流量
-      - DIRECT
-  - name: Git
-    icon: https://git-scm.cn/images/logos/logomark-black@2x.png
-    type: select
-    proxies:
-      - 国外流量
-      - 自动选择
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-      - 自建节点
-      - 香港节点
-      - 狮城节点
-      - 美国节点
-      - 国内流量
-      - DIRECT
   - name: Docker
     icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/docker.png
     type: select
@@ -648,8 +616,6 @@ proxy-groups:
       - 狮城节点
       - 韩国节点
       - GitHub
-      - GitLab
-      - Git
       - Docker
       - 国内流量
       - Steam
@@ -1082,10 +1048,10 @@ rule-providers:
 
 rules:
   - "PROCESS-NAME,oopz.exe,IP归属地伪装"
-  - "RULE-SET,GitEnhanced,Git"
+  - "RULE-SET,GitEnhanced,GitHub"
   - "RULE-SET,GitHub,GitHub"
-  - "RULE-SET,GitLab,GitLab"
-  - "RULE-SET,Gitee,Git"
+  - "RULE-SET,GitLab,GitHub"
+  - "RULE-SET,Gitee,GitHub"
   - "RULE-SET,Docker,Docker"
   - "RULE-SET,Inside,国内流量"
   - "RULE-SET,SteamCN,国内流量"
