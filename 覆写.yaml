@@ -1048,6 +1048,10 @@ rule-providers:
 
 rules:
   - "PROCESS-NAME,oopz.exe,IP归属地伪装"
+  - "PROCESS-NAME,git.exe,GitHub"
+  - "PROCESS-NAME,git-remote-https.exe,GitHub"
+  - "PROCESS-NAME,ssh.exe,GitHub"
+  - "PROCESS-NAME,git-remote-ssh.exe,GitHub"
   - "RULE-SET,GitEnhanced,GitHub"
   - "RULE-SET,GitHub,GitHub"
   - "RULE-SET,GitLab,GitHub"
