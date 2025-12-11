@@ -11,7 +11,6 @@ unified-delay: true
 tcp-concurrent: true
 find-process-mode: strict
 global-client-fingerprint: chrome
-<<<<<<< HEAD
 keep-alive-interval: 30
 geodata-mode: true
 geo-auto-update: true
@@ -19,8 +18,6 @@ geo-update-interval: 24
 profile:
   store-selected: true
   store-fake-ip: true
-=======
->>>>>>> 35435b56286d32953579a35ea6b4e6c05350430f
 sniffer:
   enable: true
   force-dns-mapping: true
@@ -104,8 +101,6 @@ dns:
   proxy-server-nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-<<<<<<< HEAD
-=======
   fallback:
     - https://1.1.1.1/dns-query
     - https://dns.google/dns-query
@@ -122,13 +117,10 @@ dns:
       - "+.twitter.com"
       - "+.github.com"
       - "+.googleapis.com"
->>>>>>> 35435b56286d32953579a35ea6b4e6c05350430f
   nameserver-policy:
     "geosite:cn,private":
       - https://doh.pub/dns-query
       - https://dns.alidns.com/dns-query
-<<<<<<< HEAD
-=======
     "+.163.com,+.126.net,+.netease.com":
       - https://doh.pub/dns-query
     "+.bilibili.com,+.bilivideo.com,+.biliapi.net":
@@ -141,7 +133,6 @@ dns:
       - https://doh.pub/dns-query
     "+.baidu.com,+.bdstatic.com":
       - https://doh.pub/dns-query
->>>>>>> 35435b56286d32953579a35ea6b4e6c05350430f
 proxy-groups:
   - name: 节点选择
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
@@ -168,7 +159,7 @@ proxy-groups:
     include-all: true
     filter: ^(?!.*(电信|联通|移动)).*
     url: http://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 50
     timeout: 3000
     lazy: true
@@ -194,7 +185,7 @@ proxy-groups:
     include-all: true
     filter: ^(?!.*(电信|联通|移动)).*
     url: http://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     timeout: 3000
     lazy: true
   - name: 负载均衡
@@ -203,7 +194,7 @@ proxy-groups:
     include-all: true
     filter: ^(?!.*(电信|联通|移动)).*
     url: http://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     timeout: 3000
     lazy: true
     strategy: consistent-hashing
@@ -321,7 +312,6 @@ proxy-groups:
       - 手动切换2
       - 手动切换3
       - 手动切换4
-<<<<<<< HEAD
       - 自建节点
       - 香港节点
       - 狮城节点
@@ -354,8 +344,6 @@ proxy-groups:
       - 手动切换2
       - 手动切换3
       - 手动切换4
-=======
->>>>>>> 35435b56286d32953579a35ea6b4e6c05350430f
       - 自建节点
       - 香港节点
       - 狮城节点
@@ -596,54 +584,54 @@ proxy-groups:
     filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 180
+    interval: 600
     tolerance: 30
-    timeout: 2000
+    timeout: 3000
   - name: 日本节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
     include-all: true
     filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 180
+    interval: 600
     tolerance: 30
-    timeout: 2000
+    timeout: 3000
   - name: 美国节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
     include-all: true
     filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 180
+    interval: 600
     tolerance: 30
-    timeout: 2000
+    timeout: 3000
   - name: 台湾节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
     include-all: true
     filter: (?i)台|新北|彰化|TW|Taiwan
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 180
+    interval: 600
     tolerance: 30
-    timeout: 2000
+    timeout: 3000
   - name: 狮城节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
     include-all: true
     filter: (?i)新加坡|坡|狮城|SG|Singapore
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 180
+    interval: 600
     tolerance: 30
-    timeout: 2000
+    timeout: 3000
   - name: 韩国节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
     include-all: true
     filter: (?i)KR|Korea|KOR|首尔|韩|韓
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 180
+    interval: 600
     tolerance: 30
-    timeout: 2000
+    timeout: 3000
   - name: GLOBAL
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
     include-all: true
