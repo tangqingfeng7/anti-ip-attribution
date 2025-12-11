@@ -11,6 +11,7 @@ unified-delay: true
 tcp-concurrent: true
 find-process-mode: strict
 global-client-fingerprint: chrome
+<<<<<<< HEAD
 keep-alive-interval: 30
 geodata-mode: true
 geo-auto-update: true
@@ -18,6 +19,8 @@ geo-update-interval: 24
 profile:
   store-selected: true
   store-fake-ip: true
+=======
+>>>>>>> 35435b56286d32953579a35ea6b4e6c05350430f
 sniffer:
   enable: true
   force-dns-mapping: true
@@ -101,10 +104,44 @@ dns:
   proxy-server-nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+<<<<<<< HEAD
+=======
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+    domain:
+      - "+.google.com"
+      - "+.facebook.com"
+      - "+.youtube.com"
+      - "+.twitter.com"
+      - "+.github.com"
+      - "+.googleapis.com"
+>>>>>>> 35435b56286d32953579a35ea6b4e6c05350430f
   nameserver-policy:
     "geosite:cn,private":
       - https://doh.pub/dns-query
       - https://dns.alidns.com/dns-query
+<<<<<<< HEAD
+=======
+    "+.163.com,+.126.net,+.netease.com":
+      - https://doh.pub/dns-query
+    "+.bilibili.com,+.bilivideo.com,+.biliapi.net":
+      - https://doh.pub/dns-query
+    "+.jd.com,+.360buyimg.com":
+      - https://doh.pub/dns-query
+    "+.taobao.com,+.tmall.com,+.alicdn.com,+.aliyun.com":
+      - https://dns.alidns.com/dns-query
+    "+.tencent.com,+.qq.com,+.weixin.com":
+      - https://doh.pub/dns-query
+    "+.baidu.com,+.bdstatic.com":
+      - https://doh.pub/dns-query
+>>>>>>> 35435b56286d32953579a35ea6b4e6c05350430f
 proxy-groups:
   - name: 节点选择
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
@@ -284,6 +321,7 @@ proxy-groups:
       - 手动切换2
       - 手动切换3
       - 手动切换4
+<<<<<<< HEAD
       - 自建节点
       - 香港节点
       - 狮城节点
@@ -316,6 +354,8 @@ proxy-groups:
       - 手动切换2
       - 手动切换3
       - 手动切换4
+=======
+>>>>>>> 35435b56286d32953579a35ea6b4e6c05350430f
       - 自建节点
       - 香港节点
       - 狮城节点
@@ -633,8 +673,6 @@ proxy-groups:
       - 狮城节点
       - 韩国节点
       - GitHub
-      - GitLab
-      - Git
       - Docker
       - 国内流量
       - Steam
@@ -1067,10 +1105,14 @@ rule-providers:
 
 rules:
   - "PROCESS-NAME,oopz.exe,IP归属地伪装"
-  - "RULE-SET,GitEnhanced,Git"
+  - "PROCESS-NAME,git.exe,GitHub"
+  - "PROCESS-NAME,git-remote-https.exe,GitHub"
+  - "PROCESS-NAME,ssh.exe,GitHub"
+  - "PROCESS-NAME,git-remote-ssh.exe,GitHub"
+  - "RULE-SET,GitEnhanced,GitHub"
   - "RULE-SET,GitHub,GitHub"
-  - "RULE-SET,GitLab,GitLab"
-  - "RULE-SET,Gitee,Git"
+  - "RULE-SET,GitLab,GitHub"
+  - "RULE-SET,Gitee,GitHub"
   - "RULE-SET,Docker,Docker"
   - "RULE-SET,Inside,国内流量"
   - "RULE-SET,SteamCN,国内流量"
