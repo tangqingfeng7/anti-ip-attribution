@@ -47,7 +47,18 @@ config:
         - DOMAIN-SUFFIX,bilivideo.com,DIRECT # 直播
         - DOMAIN-SUFFIX,akamaized.net,DIRECT # akamai视频CDN
         - DOMAIN-SUFFIX,hdslb.com,DIRECT # 静态内容
-        - DOMAIN-SUFFIX,szbdyd.com,DIRECT # PCDN(P2P)
+        - DOMAIN-SUFFIX,mcdn.bilivideo.cn,REJECT # B站主力PCDN域名，阻止P2P分发
+        - DOMAIN,ks-sh-tracker-02.biliapi.net,REJECT # B站P2P Tracker
+        - DOMAIN-SUFFIX,szbdyd.com,REJECT # PCDN(P2P) 迅雷/节点加PCDN，阻止以防泄露IP
+        # B站PCDN Tracker IP
+        - IP-CIDR,81.69.192.254/32,REJECT # PCDN Tracker
+        - IP-CIDR,159.75.113.64/32,REJECT # PCDN Tracker
+        - IP-CIDR,82.156.104.30/32,REJECT # PCDN Tracker
+        - IP-CIDR,139.155.176.138/32,REJECT # PCDN Tracker
+        - IP-CIDR,42.192.67.56/32,REJECT # PCDN Tracker
+        - IP-CIDR,159.75.138.193/32,REJECT # PCDN Tracker
+        - IP-CIDR,82.156.104.41/32,REJECT # PCDN Tracker
+        - IP-CIDR,139.155.7.96/32,REJECT # PCDN Tracker
         # - DOMAIN,api.bilibili.com # 哔哩哔哩国内网页版API域名 # 网友提供哔哩哔哩IP定位接口
         # - DOMAIN,app.bilibili.com # 哔哩哔哩App的API域名
         # - DOMAIN,api.live.bilibili.com # 哔哩哔哩直播API域名
@@ -283,6 +294,7 @@ config:
         - DOMAIN,god.gameyw.netease.com
         # ======= 虎牙 ======= #
         # issue#17提供
+        - DOMAIN,p2p.huya.com,REJECT # 虎牙P2P，阻止以防泄露IP
         - DOMAIN-SUFFIX,huya.com
         # ======= 懂球帝 ======= #
         # issue#18提供
@@ -367,6 +379,15 @@ config:
         - DOMAIN-SUFFIX,danmuproxy.douyu.com,DIRECT
         #direct图片
         - DOMAIN-SUFFIX,img.douyucdn.cn,DIRECT
+        # PCDN/P2P相关域名，阻止P2P分发防止泄露IP
+        - DOMAIN,stun.douyucdn.cn,REJECT # STUN服务器(P2P NAT穿透)
+        - DOMAIN,stun1.douyucdn.cn,REJECT # STUN服务器
+        - DOMAIN,dyp2p-ali.douyucdn.cn,REJECT # 斗鱼P2P节点(阿里云)
+        - DOMAIN,dyp2p-hw.douyucdn.cn,REJECT # 斗鱼P2P节点(华为云)
+        - DOMAIN,p2p-ali.douyucdn.cn,REJECT # P2P节点
+        - DOMAIN,p2plive-ali.douyucdn.cn,REJECT # P2P直播节点
+        - DOMAIN,p2plog.douyucdn.cn,REJECT # P2P日志
+        - DOMAIN,p2perrorlog.douyucdn.cn,REJECT # P2P错误日志
         - DOMAIN-SUFFIX,douyucdn.cn
         - DOMAIN-SUFFIX,douyu.com
         # ======= 米游社 ======= #
@@ -559,3 +580,20 @@ config:
         - DOMAIN,st.dl.bscstorage.net,DIRECT
         - DOMAIN,st.dl.pinyuncloud.com,DIRECT
         - DOMAIN-SUFFIX,steamvideo.com,DIRECT
+        # ======= PCDN通用 ======= #
+        # PCDN(P2P CDN)通用域名，阻止P2P分发防止泄露真实IP
+        # 通用PCDN基础设施域名
+        - DOMAIN-SUFFIX,xycdn.com,REJECT # 星域CDN（迅雷旗下PCDN）
+        - DOMAIN-SUFFIX,bsccdn.net,REJECT # PCDN基础设施
+        - DOMAIN-SUFFIX,kuiniuca.com,REJECT # PCDN基础设施
+        - DOMAIN-SUFFIX,pkoplink.com,REJECT # PCDN基础设施
+        - DOMAIN-SUFFIX,saxysec.com,REJECT # PCDN基础设施
+        - DOMAIN-SUFFIX,uhabo.com,REJECT # PCDN基础设施
+        - DOMAIN-SUFFIX,jomodns.cn,REJECT # PCDN DNS
+        # 各平台PCDN域名
+        - DOMAIN,tpa-hcdn.iqiyi.com,REJECT # 爱奇艺PCDN
+        - DOMAIN,pcdn.xmcdn.com,REJECT # 喜马拉雅PCDN
+        - DOMAIN,pcdn.yximgs.com,REJECT # 快手PCDN
+        - DOMAIN,stun.hitv.com,REJECT # 芒果TV STUN(P2P NAT穿透)
+        - DOMAIN,p2p.qq.com,REJECT # QQ P2P
+        - DOMAIN,p2ptun.qq.com,REJECT # QQ P2P隧道
