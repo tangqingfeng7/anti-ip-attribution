@@ -36,7 +36,7 @@ sniffer:
     - "+.push.apple.com"
 dns:
   enable: true
-  prefer-h3: false
+  prefer-h3: true
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -55,85 +55,20 @@ dns:
     - 223.5.5.5
     - 119.29.29.29
   nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   proxy-server-nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+    - 8.8.8.8
+    - 8.8.4.4
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
 proxy-groups:
-  - name: 故障转移
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bypass.png
-    type: fallback
-    include-all: true
-    filter: ^(?!.*(电信|联通|移动)).*
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    timeout: 3000
-    lazy: true
-  - name: 负载均衡
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available.png
-    type: load-balance
-    include-all: true
-    filter: ^(?!.*(电信|联通|移动)).*
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    timeout: 3000
-    lazy: true
-    strategy: consistent-hashing
-  - name: 韩国节点
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
-    include-all: true
-    filter: (?i)KR|Korea|KOR|首尔|韩|韓
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 30
-    timeout: 3000
-  - name: 狮城节点
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
-    include-all: true
-    filter: (?i)新加坡|坡|狮城|SG|Singapore
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 30
-    timeout: 3000
-  - name: 台湾节点
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
-    include-all: true
-    filter: (?i)台|新北|彰化|TW|Taiwan
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 30
-    timeout: 3000
-  - name: 美国节点
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
-    include-all: true
-    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 30
-    timeout: 3000
-  - name: 日本节点
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
-    include-all: true
-    filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 30
-    timeout: 3000
-  - name: 香港节点
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
-    include-all: true
-    filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 30
-    timeout: 3000
   - name: 漏网之鱼
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
     type: select
@@ -157,28 +92,6 @@ proxy-groups:
       - REJECT
       - 国内流量
       - 国外流量
-  - name: 全球直连
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
-    type: select
-    proxies:
-      - DIRECT
-      - 节点选择
-      - 自动选择
-  - name: 谷歌服务
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
-    type: select
-    proxies:
-      - 国外流量
-      - 自动选择
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 美国节点
   - name: Discord
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png
     type: select
@@ -195,23 +108,12 @@ proxy-groups:
     proxies:
       - 国内流量
       - DIRECT
-      - 香港节点
-      - 台湾节点
       - 手动切换
       - 手动切换2
       - 手动切换3
       - 手动切换4
   - name: 国外媒体
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
-    type: select
-    proxies:
-      - 国外流量
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-  - name: TikTok
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
     type: select
     proxies:
       - 国外流量
@@ -236,8 +138,6 @@ proxy-groups:
     proxies:
       - 国外流量
       - 国内流量
-      - 香港节点
-      - 美国节点
       - 手动切换
       - 手动切换2
       - 手动切换3
@@ -250,38 +150,6 @@ proxy-groups:
     proxies:
       - 国外流量
       - 国内流量
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-  - name: HBO
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/HBO.png
-    type: select
-    include-all: true
-    filter: (台|新北|彰化|TW|Taiwan)
-    proxies:
-      - 国外流量
-      - 台湾节点
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-  - name: PrimeVideo
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Prime_Video.png
-    type: select
-    proxies:
-      - 国外流量
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-  - name: DisneyPlus
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Disney+.png
-    type: select
-    include-all: true
-    filter: (新加坡|坡|狮城|SG|Singapore|台|新北|彰化|TW|Taiwan|港|HK|Hong Kong)
-    proxies:
-      - 国外流量
       - 手动切换
       - 手动切换2
       - 手动切换3
@@ -300,20 +168,6 @@ proxy-groups:
     type: select
     proxies:
       - 自动选择
-      - 故障转移
-      - 负载均衡
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-  - name: Steam
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png
-    type: select
-    include-all: true
-    filter: (阿根廷|AR|土耳其|TR|Turkey)
-    proxies:
-      - 国内流量
-      - 国外流量
       - 手动切换
       - 手动切换2
       - 手动切换3
@@ -330,51 +184,6 @@ proxy-groups:
       - 手动切换2
       - 手动切换3
       - 手动切换4
-  - name: Docker
-    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/docker.png
-    type: select
-    proxies:
-      - 国外流量
-      - 自动选择
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-      - 香港节点
-      - 狮城节点
-      - 美国节点
-      - 国内流量
-      - DIRECT
-  - name: Git
-    icon: https://git-scm.cn/images/logos/logomark-black@2x.png
-    type: select
-    proxies:
-      - 国外流量
-      - 自动选择
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-      - 香港节点
-      - 狮城节点
-      - 美国节点
-      - 国内流量
-      - DIRECT
-  - name: GitLab
-    icon: https://images.icon-icons.com/2107/PNG/512/file_type_gitlab_icon_130579.png
-    type: select
-    proxies:
-      - 国外流量
-      - 自动选择
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-      - 香港节点
-      - 狮城节点
-      - 美国节点
-      - 国内流量
-      - DIRECT
   - name: GitHub
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png
     type: select
@@ -385,13 +194,10 @@ proxy-groups:
       - 手动切换2
       - 手动切换3
       - 手动切换4
-      - 香港节点
-      - 狮城节点
-      - 美国节点
       - 国内流量
       - DIRECT
   - name: 游戏平台
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png
     type: select
     proxies:
       - 国内流量
@@ -407,20 +213,6 @@ proxy-groups:
     filter: (港|HK|Hong Kong|台|TW|Taiwan)
     proxies:
       - 国内流量
-      - 香港节点
-      - 台湾节点
-      - 手动切换
-      - 手动切换2
-      - 手动切换3
-      - 手动切换4
-  - name: 巴哈姆特
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bahamut.png
-    type: select
-    include-all: true
-    filter: (台|TW|Taiwan|港|HK|Hong Kong)
-    proxies:
-      - 台湾节点
-      - 香港节点
       - 手动切换
       - 手动切换2
       - 手动切换3
@@ -479,9 +271,6 @@ proxy-groups:
       - 手动切换2
       - 手动切换3
       - 手动切换4
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
       - 国内流量
   - name: 国内节点2
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png
@@ -540,18 +329,10 @@ proxy-groups:
     type: select
     proxies:
       - 自动选择
-      - 故障转移
-      - 负载均衡
       - 手动切换
       - 手动切换2
       - 手动切换3
       - 手动切换4
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
       - DIRECT
   - name: GLOBAL
     icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/06jichang/Sausage.png
@@ -565,50 +346,28 @@ proxy-groups:
       - OpenAi
       - 油管视频
       - 奈飞视频
-      - 巴哈姆特
       - 哔哩哔哩
       - 国外媒体
       - 国内媒体
       - 游戏平台
       - 网易云音乐
-      - 全球直连
       - 广告拦截
       - 应用净化
       - 漏网之鱼
-      - 香港节点
-      - 日本节点
-      - 美国节点
-      - 台湾节点
-      - 狮城节点
-      - 韩国节点
       - 国内节点
       - 国内节点2
       - GitHub
-      - Docker
       - 国内流量
-      - Steam
       - 国外流量
       - AI
       - IP归属地伪装
-      - DisneyPlus
-      - PrimeVideo
-      - HBO
       - EMBY
       - Spotify
-      - TikTok
       - Discord
-      - 谷歌服务
 rule-providers:
   GitHub:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml
     path: ./ruleset/GitHub.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  GitLab:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitLab/GitLab.yaml
-    path: ./ruleset/GitLab.yaml
     behavior: classical
     interval: 86400
     format: yaml
@@ -623,13 +382,6 @@ rule-providers:
   GitEnhanced:
     url: https://raw.githubusercontent.com/tangqingfeng7/anti-ip-attribution/refs/heads/main/rules/Git.yaml
     path: ./ruleset/GitEnhanced.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  Docker:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Docker/Docker.yaml
-    path: ./ruleset/Docker.yaml
     behavior: classical
     interval: 86400
     format: yaml
@@ -823,41 +575,6 @@ rule-providers:
     interval: 86400
     format: yaml
     type: http
-  Disney:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml
-    path: ./ruleset/Disney.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  AmazonPrimeVideo:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AmazonPrimeVideo/AmazonPrimeVideo.yaml
-    path: ./ruleset/AmazonPrimeVideo.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  HBO:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBO/HBO.yaml
-    path: ./ruleset/HBO.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  HBOAsia:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBOAsia/HBOAsia.yaml
-    path: ./ruleset/HBOAsia.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  HBOUSA:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBOUSA/HBOUSA.yaml
-    path: ./ruleset/HBOUSA.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
   Emby:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml
     path: ./ruleset/Emby.yaml
@@ -868,13 +585,6 @@ rule-providers:
   EmbyCute:
     url: https://raw.githubusercontent.com/cutethotw/ClashRule/main/Rule/Emby.yaml
     path: ./ruleset/EmbyCute.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  Bahamut:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bahamut/Bahamut.yaml
-    path: ./ruleset/Bahamut.yaml
     behavior: classical
     interval: 86400
     format: yaml
@@ -924,13 +634,6 @@ rule-providers:
   CloudMusicAntiIP:
     url: https://raw.githubusercontent.com/tangqingfeng7/anti-ip-attribution/refs/heads/main/CloudMusic.yaml
     path: ./ruleset/CloudMusicAntiIP.yaml
-    behavior: classical
-    interval: 86400
-    format: yaml
-    type: http
-  TikTok:
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
-    path: ./ruleset/TikTok.yaml
     behavior: classical
     interval: 86400
     format: yaml
@@ -1016,19 +719,30 @@ rule-providers:
 rules:
   - "DOMAIN,wd-gold.com,DIRECT"
   - "DOMAIN-SUFFIX,wd-gold.com,DIRECT"
+  - "DOMAIN,github.com,GitHub"
+  - "DOMAIN,ssh.github.com,GitHub"
+  - "DOMAIN-SUFFIX,github.com,GitHub"
+  - "DOMAIN-SUFFIX,githubusercontent.com,GitHub"
+  - "DOMAIN-SUFFIX,githubassets.com,GitHub"
+  - "DOMAIN-SUFFIX,github.io,GitHub"
+  - "DOMAIN-SUFFIX,github.dev,GitHub"
+  - "DOMAIN,gitee.com,GitHub"
+  - "DOMAIN-SUFFIX,gitee.com,GitHub"
   - "PROCESS-NAME,oopz.exe,IP归属地伪装"
   - "PROCESS-NAME,git.exe,GitHub"
   - "PROCESS-NAME,git-remote-https.exe,GitHub"
+  - "PROCESS-NAME,git-remote-http.exe,GitHub"
   - "PROCESS-NAME,ssh.exe,GitHub"
+  - "PROCESS-NAME,ssh-agent.exe,GitHub"
   - "PROCESS-NAME,git-remote-ssh.exe,GitHub"
+  - "PROCESS-NAME,git-lfs.exe,GitHub"
+  - "PROCESS-NAME,git-credential-manager.exe,GitHub"
   - "RULE-SET,GitEnhanced,GitHub"
   - "RULE-SET,GitHub,GitHub"
-  - "RULE-SET,GitLab,GitHub"
   - "RULE-SET,Gitee,GitHub"
-  - "RULE-SET,Docker,Docker"
   - "RULE-SET,Inside,国内流量"
   - "RULE-SET,SteamCN,国内流量"
-  - "RULE-SET,Steam,Steam"
+  - "RULE-SET,Steam,游戏平台"
   - "RULE-SET,Outside,国外流量"
   - "RULE-SET,ChatGPT,AI"
   - "RULE-SET,OpenAI,AI"
@@ -1053,14 +767,8 @@ rules:
   - "RULE-SET,ZhihuAds,广告拦截"
   - "RULE-SET,YouTube,油管视频"
   - "RULE-SET,Netflix,奈飞视频"
-  - "RULE-SET,Disney,DisneyPlus"
-  - "RULE-SET,AmazonPrimeVideo,PrimeVideo"
-  - "RULE-SET,HBO,HBO"
-  - "RULE-SET,HBOAsia,HBO"
-  - "RULE-SET,HBOUSA,HBO"
   - "RULE-SET,EmbyCute,EMBY"
   - "RULE-SET,Emby,EMBY"
-  - "RULE-SET,Bahamut,巴哈姆特"
   - "RULE-SET,BilibiliHMT,哔哩哔哩"
   - "RULE-SET,Bilibili,哔哩哔哩"
   - "RULE-SET,BilibiliAntiIP,哔哩哔哩"
@@ -1068,11 +776,10 @@ rules:
   - "RULE-SET,NetEaseMusic,网易云音乐"
   - "RULE-SET,NetEaseMusicACL,网易云音乐"
   - "RULE-SET,CloudMusicAntiIP,网易云音乐"
-  - "RULE-SET,TikTok,TikTok"
   - "RULE-SET,GlobalMedia,国外媒体"
   - "RULE-SET,ChinaMedia,国内媒体"
   - "RULE-SET,GoogleCN,国内流量"
-  - "RULE-SET,Google,谷歌服务"
+  - "RULE-SET,Google,国外流量"
   - "RULE-SET,Telegram,电报消息"
   - "RULE-SET,Discord,Discord"
   - "RULE-SET,Game,游戏平台"
