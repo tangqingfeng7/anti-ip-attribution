@@ -3,7 +3,7 @@ allow-lan: true
 bind-address: '*'
 mode: rule
 log-level: warning
-ipv6: false
+ipv6: true
 external-controller: '127.0.0.1:9090'
 external-ui: ui
 secret: ''
@@ -36,38 +36,38 @@ sniffer:
     - "+.push.apple.com"
 dns:
   enable: true
-  prefer-h3: true
-  ipv6: false
+  listen: 127.0.0.1:53
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  fake-ip-filter-mode: blacklist
-  fake-ip-filter:
-    - "*.lan"
-    - "*.local"
-    - "*.localhost"
-    - "*.msftconnecttest.com"
-    - "*.msftncsi.com"
-    - "+.srv.nintendo.net"
-    - "+.stun.playstation.net"
-    - "+.xboxlive.com"
   use-hosts: true
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
   nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
-  proxy-server-nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+    - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
   fallback:
     - https://1.1.1.1/dns-query
     - https://dns.google/dns-query
-    - 8.8.8.8
-    - 8.8.4.4
+    - tls://dns.google:853
   fallback-filter:
     geoip: true
     geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
+      - '+.twitter.com'
+  fake-ip-filter:
+    - '*.lan'
+    - 'localhost.ptlogin2.qq.com'
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.srv.nintendo.net'
+    - '*.n.n.srv.nintendo.net'
+    - '+.battlenet.com.cn'
+    - '+.wotgame.cn'
+    - '+.msftconnecttest.com'
 proxy-groups:
   - name: 漏网之鱼
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
@@ -196,6 +196,18 @@ proxy-groups:
       - 手动切换4
       - 国内流量
       - DIRECT
+  - name: 下载分流
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
+    type: select
+    proxies:
+      - 国外流量
+      - 国内流量
+      - DIRECT
+      - 自动选择
+      - 手动切换
+      - 手动切换2
+      - 手动切换3
+      - 手动切换4
   - name: 游戏平台
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png
     type: select
@@ -357,6 +369,7 @@ proxy-groups:
       - 国内节点
       - 国内节点2
       - GitHub
+      - 下载分流
       - 国内流量
       - 国外流量
       - AI
@@ -719,6 +732,47 @@ rule-providers:
 rules:
   - "DOMAIN,wd-gold.com,DIRECT"
   - "DOMAIN-SUFFIX,wd-gold.com,DIRECT"
+  - "DOMAIN,download.oracle.com,下载分流"
+  - "DOMAIN,clientlog3.music.163.com,DIRECT"
+  - "DOMAIN,google.com,国外流量"
+  - "DOMAIN-SUFFIX,google.com,国外流量"
+  - "DOMAIN-SUFFIX,googleapis.com,国外流量"
+  - "DOMAIN-SUFFIX,gstatic.com,国外流量"
+  - "DOMAIN,youtube.com,油管视频"
+  - "DOMAIN-SUFFIX,youtube.com,油管视频"
+  - "DOMAIN-SUFFIX,youtu.be,油管视频"
+  - "DOMAIN-SUFFIX,ytimg.com,油管视频"
+  - "DOMAIN,x.com,国外流量"
+  - "DOMAIN-SUFFIX,x.com,国外流量"
+  - "DOMAIN,twitter.com,国外流量"
+  - "DOMAIN-SUFFIX,twitter.com,国外流量"
+  - "DOMAIN-SUFFIX,twimg.com,国外流量"
+  - "DOMAIN,facebook.com,国外流量"
+  - "DOMAIN-SUFFIX,facebook.com,国外流量"
+  - "DOMAIN-SUFFIX,fbcdn.net,国外流量"
+  - "DOMAIN,instagram.com,国外流量"
+  - "DOMAIN-SUFFIX,instagram.com,国外流量"
+  - "DOMAIN-SUFFIX,cdninstagram.com,国外流量"
+  - "DOMAIN,whatsapp.com,国外流量"
+  - "DOMAIN-SUFFIX,whatsapp.com,国外流量"
+  - "DOMAIN-SUFFIX,whatsapp.net,国外流量"
+  - "DOMAIN,reddit.com,国外流量"
+  - "DOMAIN-SUFFIX,reddit.com,国外流量"
+  - "DOMAIN-SUFFIX,redd.it,国外流量"
+  - "DOMAIN-SUFFIX,redditstatic.com,国外流量"
+  - "DOMAIN,pixiv.net,国外流量"
+  - "DOMAIN-SUFFIX,pixiv.net,国外流量"
+  - "DOMAIN-SUFFIX,pximg.net,国外流量"
+  - "DOMAIN,telegram.org,电报消息"
+  - "DOMAIN,telegram.me,电报消息"
+  - "DOMAIN-SUFFIX,telegram.org,电报消息"
+  - "DOMAIN-SUFFIX,telegram.me,电报消息"
+  - "DOMAIN-SUFFIX,t.me,电报消息"
+  - "DOMAIN-SUFFIX,telegra.ph,电报消息"
+  - "DOMAIN,discord.com,Discord"
+  - "DOMAIN-SUFFIX,discord.com,Discord"
+  - "DOMAIN-SUFFIX,discord.gg,Discord"
+  - "DOMAIN-SUFFIX,discordapp.com,Discord"
   - "DOMAIN,github.com,GitHub"
   - "DOMAIN,ssh.github.com,GitHub"
   - "DOMAIN-SUFFIX,github.com,GitHub"
@@ -729,6 +783,7 @@ rules:
   - "DOMAIN,gitee.com,GitHub"
   - "DOMAIN-SUFFIX,gitee.com,GitHub"
   - "PROCESS-NAME,oopz.exe,IP归属地伪装"
+  - "PROCESS-NAME,Telegram.exe,电报消息"
   - "PROCESS-NAME,git.exe,GitHub"
   - "PROCESS-NAME,git-remote-https.exe,GitHub"
   - "PROCESS-NAME,git-remote-http.exe,GitHub"
@@ -786,6 +841,6 @@ rules:
   - "RULE-SET,ProxyGFWlist,国外流量"
   - "RULE-SET,ChinaDomain,国内流量"
   - "RULE-SET,ChinaCompanyIp,国内流量"
-  - "RULE-SET,Download,国内流量"
+  - "RULE-SET,Download,下载分流"
   - "GEOIP,CN,国内流量"
   - "MATCH,漏网之鱼"

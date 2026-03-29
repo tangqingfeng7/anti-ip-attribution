@@ -1,0 +1,9 @@
+# PUBG, 0
+// 适用于 Netch Redirector 的进程模式。
+// 每行一个 C++ 正则，按进程完整路径匹配。
+// 覆盖 Steam 版与部分地区服常见的启动器、主进程和 PUBG 专属子进程。
+// 刻意不包含 BEService_x64.exe 这类通用 BattlEye 进程，避免误伤其他游戏。
+// 这个文件只支持进程匹配，不支持直接写入 IP/CIDR 路由规则。
+[Pp][Uu][Bb][Gg]_[Ll][Aa][Uu][Nn][Cc][Hh][Ee][Rr]\.exe$
+[Ee][Xx][Ee][Cc][Pp][Uu][Bb][Gg]\.exe$
+[Tt][Ss][Ll][Gg][Aa][Mm][Ee](?:_[Bb][Ee]|_[Ss][Ee]|_[Uu][Cc]|_[Zz][Kk])?\.exe$

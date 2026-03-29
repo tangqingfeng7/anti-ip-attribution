@@ -1,0 +1,22 @@
+{
+  "type": "ProcessMode",
+  "remark": {
+    "zh-CN": "Emby Theater Desktop"
+  },
+  "handle": [
+    "^D:\\\\Windows Emby\\\\Emby Theater\\\\",
+    "Emby\\.Theater\\.exe"
+  ],
+  "bypass": [],
+  "filterIntranet": true,
+  "filterLoopback": false,
+  "dnsHost": "1.1.1.1:53",
+  "handleOnlyDNS": false,
+  "icmpDelay": 10,
+  "filterParent": true,
+  "filterDNS": true,
+  "filterUDP": true,
+  "filterTCP": true,
+  "filterICMP": false,
+  "dnsProxy": false
+}

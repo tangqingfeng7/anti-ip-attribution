@@ -1,0 +1,5 @@
+# Oopz, 0
+// Process mode for Netch Redirector.
+// Converted from rules/Oopz.yaml.
+// Netch process mode matches process path with C++ regex.
+[Oo][Oo][Pp][Zz]\.exe$
