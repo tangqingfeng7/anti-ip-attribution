@@ -1,11 +1,10 @@
 # 针对部分网站显示IP归属地的分流规则
-# anti-ip-attribution rule-set-direct.list v0.3.1 c7481a9ab7f447c6ebccf2f010bd0f343d6f701d
+# anti-ip-attribution rule-set-direct.list v0.3.1 9dec66cc0447775f1a88e4e61a09c9e524b15af8
 # https://github.com/SunsetMkt/anti-ip-attribution
 # 适用于Clash RULE-SET
 DOMAIN-SUFFIX,bilivideo.com
 DOMAIN-SUFFIX,akamaized.net
 DOMAIN-SUFFIX,hdslb.com
-DOMAIN-SUFFIX,szbdyd.com
 DOMAIN-SUFFIX,zijieapi.com
 DOMAIN-SUFFIX,ecombdapi.com
 DOMAIN-SUFFIX,lf127.net
@@ -26,3 +25,13 @@ DOMAIN-SUFFIX,img.douyucdn.cn
 DOMAIN,y.qq.com
 DOMAIN,china-img.soulapp.cn
 DOMAIN,img.soulapp.cn
+DOMAIN,v2ex.assets.uxengine.net
+DOMAIN-SUFFIX,steamcontent.com
+DOMAIN-SUFFIX,steamcdn-a.akamaihd.net
+DOMAIN,cdn.akamai.steamstatic.com
+DOMAIN,cdn.cloudflare.steamstatic.com
+DOMAIN-SUFFIX,steamchina.com
+DOMAIN,st.dl.eccdnx.com
+DOMAIN,st.dl.bscstorage.net
+DOMAIN,st.dl.pinyuncloud.com
+DOMAIN-SUFFIX,steamvideo.com

@@ -15,10 +15,10 @@ config:
     description: "针对部分网站显示IP归属地的分流规则" # 项目描述
     rules: # 规则列表
         
-# ======= 脉脉 ======= #
+# ======= V2EX ======= #
 
-        # 脉脉职场社交
-        - DOMAIN-SUFFIX,maimai.cn
-        - DOMAIN,api.maimai.cn
-        - DOMAIN,open.taou.com
+        # V2EX技术社区
+        - DOMAIN,www.v2ex.com
+        - DOMAIN,v2ex.com
+        - DOMAIN,v2ex.assets.uxengine.net,DIRECT # 静态资源直连
         

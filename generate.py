@@ -2,9 +2,10 @@
 # 针对部分网站显示IP归属地的分流规则
 # anti-ip-attribution generate.py
 # https://github.com/SunsetMkt/anti-ip-attribution
-# 从rules.yaml生成配置文件，由Actions调用。
+# 从rules.yaml与CloudMusic.yaml生成配置文件，由Actions调用。
 # 读取文件：
 # rules.yaml 配置文件
+# CloudMusic.yaml 网易云音乐规则配置
 # parser-header.yaml parser.yaml的生成模板
 # 输出文件：
 # parser.yaml 适用于Clash for Windows的配置文件预处理功能，详见https://docs.cfw.lbyczf.com/contents/parser.html
@@ -19,6 +20,9 @@ import sys
 
 import git
 import yaml
+
+CLOUD_MUSIC_FILE = "CloudMusic.yaml"
+CLOUD_MUSIC_INSERT_AFTER = "DOMAIN,api.vip.miui.com"
 
 
 def read_yaml(file):
@@ -42,6 +46,45 @@ def save_string(string, filename):
     """保存字符串"""
     with open(filename, "w", encoding="utf-8") as f:
         f.write(string)
+
+
+def load_cloudmusic_rules(file):
+    """读取网易云音乐独立规则"""
+    cloudmusic = read_yaml(file)
+    payload = cloudmusic.get("payload", [])
+    if not isinstance(payload, list):
+        raise ValueError("CloudMusic.yaml 的 payload 必须为列表")
+    rules = []
+    for rule in payload:
+        if not isinstance(rule, str):
+            continue
+        rule = rule.strip()
+        if not rule:
+            continue
+        # CloudMusic.yaml 是 Rule Provider 格式，IP 规则可能自带 no-resolve。
+        # 合并回总源规则时需要还原为 rules.yaml 使用的两段式写法。
+        if rule.startswith(("IP-CIDR,", "IP-CIDR6,")) and rule.endswith(",no-resolve"):
+            rule = rule[: -len(",no-resolve")]
+        rules.append(rule)
+    return rules
+
+
+def merge_rules(config, external_rules, insert_after):
+    """将外部规则合并到总规则中"""
+    merged = copy.deepcopy(config)
+    rules = merged["config"]["rules"]
+    existing_rules = set(rules)
+    pending_rules = [rule for rule in external_rules if rule not in existing_rules]
+    if not pending_rules:
+        return merged
+
+    try:
+        insert_index = rules.index(insert_after) + 1
+    except ValueError:
+        insert_index = len(rules)
+
+    rules[insert_index:insert_index] = pending_rules
+    return merged
 
 
 def get_git_hash():
@@ -330,6 +373,8 @@ def generate_quantumultx(config):
 
 if __name__ == "__main__":
     config = read_yaml("rules.yaml")
+    cloudmusic_rules = load_cloudmusic_rules(CLOUD_MUSIC_FILE)
+    config = merge_rules(config, cloudmusic_rules, CLOUD_MUSIC_INSERT_AFTER)
     print(get_head_comment(config, "generate.py", "配置文件生成脚本"))
     print("=====================")
     print("开始生成配置文件...")

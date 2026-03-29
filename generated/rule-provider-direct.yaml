@@ -1,12 +1,11 @@
 # 针对部分网站显示IP归属地的分流规则
-# anti-ip-attribution rule-provider-direct.yaml v0.3.1 c7481a9ab7f447c6ebccf2f010bd0f343d6f701d
+# anti-ip-attribution rule-provider-direct.yaml v0.3.1 9dec66cc0447775f1a88e4e61a09c9e524b15af8
 # https://github.com/SunsetMkt/anti-ip-attribution
 # 适用于Clash的Rule Provider功能，详见https://lancellc.gitbook.io/clash/clash-config-file/rule-provider
 payload:
 - DOMAIN-SUFFIX,bilivideo.com,DIRECT
 - DOMAIN-SUFFIX,akamaized.net,DIRECT
 - DOMAIN-SUFFIX,hdslb.com,DIRECT
-- DOMAIN-SUFFIX,szbdyd.com,DIRECT
 - DOMAIN-SUFFIX,zijieapi.com,DIRECT
 - DOMAIN-SUFFIX,ecombdapi.com,DIRECT
 - DOMAIN-SUFFIX,lf127.net,DIRECT
@@ -27,3 +26,13 @@ payload:
 - DOMAIN,y.qq.com,DIRECT
 - DOMAIN,china-img.soulapp.cn,DIRECT
 - DOMAIN,img.soulapp.cn,DIRECT
+- DOMAIN,v2ex.assets.uxengine.net,DIRECT
+- DOMAIN-SUFFIX,steamcontent.com,DIRECT
+- DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
+- DOMAIN,cdn.akamai.steamstatic.com,DIRECT
+- DOMAIN,cdn.cloudflare.steamstatic.com,DIRECT
+- DOMAIN-SUFFIX,steamchina.com,DIRECT
+- DOMAIN,st.dl.eccdnx.com,DIRECT
+- DOMAIN,st.dl.bscstorage.net,DIRECT
+- DOMAIN,st.dl.pinyuncloud.com,DIRECT
+- DOMAIN-SUFFIX,steamvideo.com,DIRECT

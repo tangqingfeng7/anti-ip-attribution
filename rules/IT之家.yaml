@@ -18,3 +18,4 @@ config:
 # ======= IT之家 ======= #
 
         - DOMAIN,cmt.ithome.com
+        

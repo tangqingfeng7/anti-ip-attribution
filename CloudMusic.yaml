@@ -3,6 +3,13 @@
 # https://github.com/SunsetMkt/anti-ip-attribution
 # 适用于Clash的Rule Provider功能，详见https://lancellc.gitbook.io/clash/clash-config-file/rule-provider
 payload:
+# issue#21#issuecomment-1213136722
+# - DOMAIN,music.163.com
+# https://lbs.netease.im/lbs/conf.jsp # httpdns
+# - DOMAIN,httpdns.n.netease.com,REJECT
+# - IP-CIDR,59.111.239.61/32,REJECT
+# - IP-CIDR,59.111.239.62/32,REJECT
+# issue#21#issuecomment-1214307572
 - DOMAIN-SUFFIX,music.163.com
 - DOMAIN,nstool.netease.com
 - DOMAIN,wanproxy.127.net
@@ -13,14 +20,19 @@ payload:
 - DOMAIN,lbs.netease.im
 - DOMAIN,wannos.127.net
 - DOMAIN,ac.dun.163.com
-- DOMAIN,ye.dun.163yun.com
 - DOMAIN-SUFFIX,music.126.net
 - DOMAIN-SUFFIX,laiqukankan.com
-- DOMAIN-SUFFIX,lofter.com
-- DOMAIN,yaolu.yuedu.163.com
-- DOMAIN-SUFFIX,lf127.net,DIRECT
-- DOMAIN-SUFFIX,music.163.com.163jiasu.com
 - DOMAIN-SUFFIX,music.ntes53.netease.com
+# telv4.music.ntes53.netease.com
+# telv6.music.ntes53.netease.com
+# cmccv4.music.ntes53.netease.com
+# cmccv6.music.ntes53.netease.com
+# univ4.music.ntes53.netease.com
+# univ6.music.ntes53.netease.com
+# overseasv4.music.ntes53.netease.com
+# overseasv6.music.ntes53.netease.com
+# bgpv4.music.ntes53.netease.com
+# bgpv6.music.ntes53.netease.com
 - IP-CIDR,101.71.154.241/32,no-resolve
 - IP-CIDR,103.126.92.132/32,no-resolve
 - IP-CIDR,103.126.92.133/32,no-resolve
@@ -32,6 +44,8 @@ payload:
 - IP-CIDR,59.111.160.195/32,no-resolve
 - IP-CIDR,59.111.19.33/32,no-resolve
 - IP-CIDR,59.111.19.53/32,no-resolve
+# issue #70
+- DOMAIN-SUFFIX,music.163.com.163jiasu.com
 - IP-CIDR,119.36.90.80/32,no-resolve
 - IP-CIDR,111.48.137.146/32,no-resolve
 - IP-CIDR,1.95.21.35/32,no-resolve

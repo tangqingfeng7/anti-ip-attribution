@@ -18,5 +18,6 @@ config:
 # ======= 虎牙 ======= #
 
         # issue#17提供
+        - DOMAIN,p2p.huya.com,REJECT # 虎牙P2P，阻止以防泄露IP
         - DOMAIN-SUFFIX,huya.com
         

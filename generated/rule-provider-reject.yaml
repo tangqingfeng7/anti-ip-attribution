@@ -1,5 +1,5 @@
 # 针对部分网站显示IP归属地的分流规则
-# anti-ip-attribution rule-provider-reject.yaml v0.3.1 c7481a9ab7f447c6ebccf2f010bd0f343d6f701d
+# anti-ip-attribution rule-provider-reject.yaml v0.3.1 9dec66cc0447775f1a88e4e61a09c9e524b15af8
 # https://github.com/SunsetMkt/anti-ip-attribution
 # 适用于Clash的Rule Provider功能，详见https://lancellc.gitbook.io/clash/clash-config-file/rule-provider
 payload:
@@ -20,6 +20,39 @@ payload:
 - IP-CIDR,116.63.10.31/32,REJECT,no-resolve
 - IP-CIDR,112.64.218.119/32,REJECT,no-resolve
 - IP-CIDR,112.65.200.117/32,REJECT,no-resolve
+- DOMAIN-SUFFIX,mcdn.bilivideo.cn,REJECT
+- DOMAIN,ks-sh-tracker-02.biliapi.net,REJECT
+- DOMAIN-SUFFIX,szbdyd.com,REJECT
+- IP-CIDR,81.69.192.254/32,REJECT,no-resolve
+- IP-CIDR,159.75.113.64/32,REJECT,no-resolve
+- IP-CIDR,82.156.104.30/32,REJECT,no-resolve
+- IP-CIDR,139.155.176.138/32,REJECT,no-resolve
+- IP-CIDR,42.192.67.56/32,REJECT,no-resolve
+- IP-CIDR,159.75.138.193/32,REJECT,no-resolve
+- IP-CIDR,82.156.104.41/32,REJECT,no-resolve
+- IP-CIDR,139.155.7.96/32,REJECT,no-resolve
 - IP-CIDR,118.89.204.198/23,REJECT,no-resolve
 - IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/40,REJECT,no-resolve
 - IP-CIDR,119.29.29.98/32,REJECT,no-resolve
+- DOMAIN,p2p.huya.com,REJECT
+- DOMAIN,stun.douyucdn.cn,REJECT
+- DOMAIN,stun1.douyucdn.cn,REJECT
+- DOMAIN,dyp2p-ali.douyucdn.cn,REJECT
+- DOMAIN,dyp2p-hw.douyucdn.cn,REJECT
+- DOMAIN,p2p-ali.douyucdn.cn,REJECT
+- DOMAIN,p2plive-ali.douyucdn.cn,REJECT
+- DOMAIN,p2plog.douyucdn.cn,REJECT
+- DOMAIN,p2perrorlog.douyucdn.cn,REJECT
+- DOMAIN-SUFFIX,xycdn.com,REJECT
+- DOMAIN-SUFFIX,bsccdn.net,REJECT
+- DOMAIN-SUFFIX,kuiniuca.com,REJECT
+- DOMAIN-SUFFIX,pkoplink.com,REJECT
+- DOMAIN-SUFFIX,saxysec.com,REJECT
+- DOMAIN-SUFFIX,uhabo.com,REJECT
+- DOMAIN-SUFFIX,jomodns.cn,REJECT
+- DOMAIN,tpa-hcdn.iqiyi.com,REJECT
+- DOMAIN,pcdn.xmcdn.com,REJECT
+- DOMAIN,pcdn.yximgs.com,REJECT
+- DOMAIN,stun.hitv.com,REJECT
+- DOMAIN,p2p.qq.com,REJECT
+- DOMAIN,p2ptun.qq.com,REJECT

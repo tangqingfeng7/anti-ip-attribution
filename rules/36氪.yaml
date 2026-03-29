@@ -15,10 +15,10 @@ config:
     description: "针对部分网站显示IP归属地的分流规则" # 项目描述
     rules: # 规则列表
         
-# ======= 脉脉 ======= #
+# ======= 36氪 ======= #
 
-        # 脉脉职场社交
-        - DOMAIN-SUFFIX,maimai.cn
-        - DOMAIN,api.maimai.cn
-        - DOMAIN,open.taou.com
+        # 36氪
+        - DOMAIN-SUFFIX,36kr.com
+        - DOMAIN,www.36kr.com
+        - DOMAIN,api.36kr.com
         

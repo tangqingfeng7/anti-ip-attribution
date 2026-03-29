@@ -6,7 +6,7 @@
 
 ## 使用之前
 
-请在使用前详细阅读`rules.yaml`内容，内部注释包含部分可选规则，请酌情参考。
+请在使用前详细阅读`rules.yaml`与`CloudMusic.yaml`内容，内部注释包含部分可选规则，请酌情参考。
 
 强烈建议 Fork 自己的一份配置文件，不要直接使用最新的。
 
@@ -31,13 +31,13 @@ Clash for Windows 已于 2023.11.2 (UTC+8) 删库，将不再积极支持`parser
 
 ## 关于自动生成
 
-本仓库使用 GitHub Actions 从`rules.yaml`中生成配置文件，详见`generate.py`。
+本仓库使用 GitHub Actions 从`rules.yaml`与`CloudMusic.yaml`中生成配置文件，详见`generate.py`。
 
 ## PR & 贡献
 
 仓库所有者和开发者的能力不能保证持续、高效维护地此仓库。如若发现改进或更好的方案，欢迎 PR。
 
-只需要修改`rules.yaml`，其余配置文件会自动生成。
+大部分规则维护在`rules.yaml`，网易云音乐规则维护在`CloudMusic.yaml`，其余配置文件会自动生成。
 
 如果您对项目改进有兴趣，欢迎 Email 联系我获取 Collaborator 权限。
 

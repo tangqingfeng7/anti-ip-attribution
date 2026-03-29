@@ -35,6 +35,15 @@ config:
         - DOMAIN-SUFFIX,danmuproxy.douyu.com,DIRECT
         #direct图片
         - DOMAIN-SUFFIX,img.douyucdn.cn,DIRECT
+        # PCDN/P2P相关域名，阻止P2P分发防止泄露IP
+        - DOMAIN,stun.douyucdn.cn,REJECT # STUN服务器(P2P NAT穿透)
+        - DOMAIN,stun1.douyucdn.cn,REJECT # STUN服务器
+        - DOMAIN,dyp2p-ali.douyucdn.cn,REJECT # 斗鱼P2P节点(阿里云)
+        - DOMAIN,dyp2p-hw.douyucdn.cn,REJECT # 斗鱼P2P节点(华为云)
+        - DOMAIN,p2p-ali.douyucdn.cn,REJECT # P2P节点
+        - DOMAIN,p2plive-ali.douyucdn.cn,REJECT # P2P直播节点
+        - DOMAIN,p2plog.douyucdn.cn,REJECT # P2P日志
+        - DOMAIN,p2perrorlog.douyucdn.cn,REJECT # P2P错误日志
         - DOMAIN-SUFFIX,douyucdn.cn
         - DOMAIN-SUFFIX,douyu.com
         

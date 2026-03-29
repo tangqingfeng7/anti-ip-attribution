@@ -49,7 +49,18 @@ config:
         - DOMAIN-SUFFIX,bilivideo.com,DIRECT # 直播
         - DOMAIN-SUFFIX,akamaized.net,DIRECT # akamai视频CDN
         - DOMAIN-SUFFIX,hdslb.com,DIRECT # 静态内容
-        - DOMAIN-SUFFIX,szbdyd.com,DIRECT # PCDN(P2P)
+        - DOMAIN-SUFFIX,mcdn.bilivideo.cn,REJECT # B站主力PCDN域名，阻止P2P分发
+        - DOMAIN,ks-sh-tracker-02.biliapi.net,REJECT # B站P2P Tracker
+        - DOMAIN-SUFFIX,szbdyd.com,REJECT # PCDN(P2P) 迅雷/节点加PCDN，阻止以防泄露IP
+        # B站PCDN Tracker IP
+        - IP-CIDR,81.69.192.254/32,REJECT # PCDN Tracker
+        - IP-CIDR,159.75.113.64/32,REJECT # PCDN Tracker
+        - IP-CIDR,82.156.104.30/32,REJECT # PCDN Tracker
+        - IP-CIDR,139.155.176.138/32,REJECT # PCDN Tracker
+        - IP-CIDR,42.192.67.56/32,REJECT # PCDN Tracker
+        - IP-CIDR,159.75.138.193/32,REJECT # PCDN Tracker
+        - IP-CIDR,82.156.104.41/32,REJECT # PCDN Tracker
+        - IP-CIDR,139.155.7.96/32,REJECT # PCDN Tracker
         # - DOMAIN,api.bilibili.com # 哔哩哔哩国内网页版API域名 # 网友提供哔哩哔哩IP定位接口
         # - DOMAIN,app.bilibili.com # 哔哩哔哩App的API域名
         # - DOMAIN,api.live.bilibili.com # 哔哩哔哩直播API域名
