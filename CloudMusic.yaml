@@ -10,6 +10,7 @@ payload:
 # - IP-CIDR,59.111.239.61/32,REJECT
 # - IP-CIDR,59.111.239.62/32,REJECT
 # issue#21#issuecomment-1214307572
+- DOMAIN,clientlog.music.163.com,DIRECT
 - DOMAIN-SUFFIX,music.163.com
 - DOMAIN,nstool.netease.com
 - DOMAIN,wanproxy.127.net

@@ -1,5 +1,5 @@
 # 针对部分网站显示IP归属地的分流规则
-# anti-ip-attribution rule-provider-direct.yaml v0.3.1 9dec66cc0447775f1a88e4e61a09c9e524b15af8
+# anti-ip-attribution rule-provider-direct.yaml v0.3.1 ddbd33b6626fd8ce5742d739361189914a867134
 # https://github.com/SunsetMkt/anti-ip-attribution
 # 适用于Clash的Rule Provider功能，详见https://lancellc.gitbook.io/clash/clash-config-file/rule-provider
 payload:
@@ -8,6 +8,7 @@ payload:
 - DOMAIN-SUFFIX,hdslb.com,DIRECT
 - DOMAIN-SUFFIX,zijieapi.com,DIRECT
 - DOMAIN-SUFFIX,ecombdapi.com,DIRECT
+- DOMAIN,clientlog.music.163.com,DIRECT
 - DOMAIN-SUFFIX,lf127.net,DIRECT
 - DOMAIN-SUFFIX,hls3-akm.douyucdn.cn,DIRECT
 - DOMAIN-SUFFIX,hlsa-akm.douyucdn.cn,DIRECT

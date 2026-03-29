@@ -1,5 +1,5 @@
 # 针对部分网站显示IP归属地的分流规则
-# anti-ip-attribution parser.yaml v0.3.1 9dec66cc0447775f1a88e4e61a09c9e524b15af8
+# anti-ip-attribution parser.yaml v0.3.1 ddbd33b6626fd8ce5742d739361189914a867134
 # https://github.com/SunsetMkt/anti-ip-attribution
 # 适用于Clash for Windows的配置文件预处理功能，详见https://docs.cfw.lbyczf.com/contents/parser.html
 parsers:
@@ -189,6 +189,7 @@ parsers:
     - "DOMAIN,bbs.nga.cn,IP\u5F52\u5C5E\u5730"
     - "DOMAIN,nga.178.com,IP\u5F52\u5C5E\u5730"
     - "DOMAIN,api.vip.miui.com,IP\u5F52\u5C5E\u5730"
+    - DOMAIN,clientlog.music.163.com,DIRECT
     - "DOMAIN-SUFFIX,music.163.com,IP\u5F52\u5C5E\u5730"
     - "DOMAIN,nstool.netease.com,IP\u5F52\u5C5E\u5730"
     - "DOMAIN,wanproxy.127.net,IP\u5F52\u5C5E\u5730"

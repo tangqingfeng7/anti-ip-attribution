@@ -733,6 +733,7 @@ rules:
   - "DOMAIN,wd-gold.com,DIRECT"
   - "DOMAIN-SUFFIX,wd-gold.com,DIRECT"
   - "DOMAIN,download.oracle.com,下载分流"
+  - "DOMAIN,clientlog.music.163.com,DIRECT"
   - "DOMAIN,clientlog3.music.163.com,DIRECT"
   - "DOMAIN,google.com,国外流量"
   - "DOMAIN-SUFFIX,google.com,国外流量"

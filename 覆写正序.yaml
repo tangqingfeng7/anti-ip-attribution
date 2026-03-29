@@ -587,9 +587,9 @@ rule-providers:
     interval: 86400
     format: yaml
     type: http
-  SunsetMktAntiIPAttribution:
-    url: https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/generated/rule-provider.yaml
-    path: ./ruleset/SunsetMktAntiIPAttribution.yaml
+  TangQingFengAntiIPAttribution:
+    url: https://raw.githubusercontent.com/tangqingfeng7/anti-ip-attribution/refs/heads/main/rules.yaml
+    path: ./ruleset/TangQingFengAntiIPAttribution.yaml
     behavior: classical
     interval: 86400
     format: yaml
@@ -884,6 +884,8 @@ rule-providers:
 
 rules:
   - "DOMAIN,ac.dun.163.com,DIRECT"
+  - "DOMAIN,clientlog.music.163.com,DIRECT"
+  - "DOMAIN,clientlog3.music.163.com,DIRECT"
   - "DOMAIN-SUFFIX,gitee.com,DIRECT"
   - "PROCESS-NAME,oopz.exe,IP归属地伪装"
   - "PROCESS-NAME,git.exe,GitHub"
@@ -908,7 +910,7 @@ rules:
   - "RULE-SET,Lan,国内流量"
   - "RULE-SET,UnBan,国内流量"
   - "RULE-SET,AntiIPAttribution,IP归属地伪装"
-  - "RULE-SET,SunsetMktAntiIPAttribution,IP归属地伪装"
+  - "RULE-SET,TangQingFengAntiIPAttribution,IP归属地伪装"
   - "RULE-SET,Oopz,IP归属地伪装"
   - "RULE-SET,PikPak,国外流量"
   - "RULE-SET,Hijacking,应用净化"
