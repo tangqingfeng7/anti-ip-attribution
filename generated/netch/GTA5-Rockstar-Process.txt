@@ -1,0 +1,33 @@
+# GTA5 Rockstar, 0
+// 适用于 Netch Redirector 的进程模式。
+// 每行一个 C++ 正则，按进程完整路径匹配。
+// 覆盖 GTA5 Legacy / Enhanced 常见启动链，以及 Rockstar Games Launcher / Social Club。
+// 这里优先保证命中率，因此同时保留了部分更宽松的启动器进程名与 BattlEye 进程名。
+// 所有规则都显式按“路径后缀”匹配，兼容性会比只写文件名更稳一些。
+.*[Gg][Tt][Aa]5\.exe$
+.*[Gg][Tt][Aa]5_[Ee][Nn][Hh][Aa][Nn][Cc][Ee][Dd]\.exe$
+.*[Gg][Tt][Aa]5_[Bb][Ee]\.exe$
+.*[Gg][Tt][Aa]5_[Ee][Nn][Hh][Aa][Nn][Cc][Ee][Dd]_[Bb][Ee]\.exe$
+.*[Gg][Tt][Aa][Vv]\.exe$
+.*[Gg][Tt][Aa][Vv]_[Bb][Ee]\.exe$
+.*[Pp]lay[Gg][Tt][Aa][Vv]\.exe$
+.*[Gg][Tt][Aa][Vv][Ll][Aa][Uu][Nn][Cc][Hh][Ee][Rr]\.exe$
+.*[Gg][Tt][Aa][Vv][Ll][Aa][Nn][Gg][Uu][Aa][Gg][Ee][Ss][Ee][Ll][Ee][Cc][Tt]\.exe$
+.*[Ll]auncher\.exe$
+.*[Ll]auncher[Pp]atcher\.exe$
+.*[Rr]ockstar [Gg]ames [Ll]auncher\.exe$
+.*[Rr]ockstar[Gg]ames[Ll]auncher\.exe$
+.*[Rr]ockstar [Gg]ames\\[Ll]auncher\\[Ll]auncher[Pp]atcher\.exe$
+.*[Rr]ockstar [Gg]ames\\[Ll]auncher\\[Ll]auncher\.exe$
+.*[Rr]ockstar [Gg]ames\\[Ll]auncher\\[Rr]ockstar[Ss]ervice\.exe$
+.*[Rr]ockstar[Ss]ervice\.exe$
+.*[Ss]ocial[Cc]lub\.exe$
+.*[Ss]ocial[Cc]lub[Hh]elper\.exe$
+.*[Ss]ocial[Cc]lub[Ll]auncher\.exe$
+.*[Ii]nstall[Ss]ocial[Cc]lub\.exe$
+.*[Ss]ocial[Cc]lub[Ss]etup\.exe$
+.*[Ss]ocial-[Cc]lub-[Ss]etup\.exe$
+.*[Rr]ockstar [Gg]ames\\[Ss]ocial [Cc]lub\\[Ss]ub[Pp]rocess\.exe$
+.*[Ss]ub[Pp]rocess\.exe$
+.*[Bb][Ee][Ss]ervice_[Xx]64\.exe$
+.*[Bb][Ee][Ss]ervice\.exe$

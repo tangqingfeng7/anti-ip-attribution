@@ -6,4 +6,8 @@
 // 这个文件只支持进程匹配，不支持直接写入 IP/CIDR 路由规则。
 [Pp][Uu][Bb][Gg]_[Ll][Aa][Uu][Nn][Cc][Hh][Ee][Rr]\.exe$
 [Ee][Xx][Ee][Cc][Pp][Uu][Bb][Gg]\.exe$
-[Tt][Ss][Ll][Gg][Aa][Mm][Ee](?:_[Bb][Ee]|_[Ss][Ee]|_[Uu][Cc]|_[Zz][Kk])?\.exe$
+[Tt][Ss][Ll][Gg][Aa][Mm][Ee]\.exe$
+[Tt][Ss][Ll][Gg][Aa][Mm][Ee]_[Bb][Ee]\.exe$
+[Tt][Ss][Ll][Gg][Aa][Mm][Ee]_[Ss][Ee]\.exe$
+[Tt][Ss][Ll][Gg][Aa][Mm][Ee]_[Uu][Cc]\.exe$
+[Tt][Ss][Ll][Gg][Aa][Mm][Ee]_[Zz][Kk]\.exe$
