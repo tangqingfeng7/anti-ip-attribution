@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MRS 规则修改工具</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --text: #182230;
+      --muted: #667085;
+      --border: #d0d5dd;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --danger: #dc2626;
+      --ok: #067647;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+      gap: 16px;
+      padding: 16px;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 9px 10px;
+      color: var(--text);
+      background: #fff;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+      font-family: Consolas, "Cascadia Mono", monospace;
+    }
+
+    button {
+      border: 0;
+      border-radius: 6px;
+      padding: 9px 12px;
+      color: #fff;
+      background: var(--primary);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+    }
+
+    button.secondary {
+      color: var(--text);
+      background: #eef2f7;
+    }
+
+    button.secondary:hover {
+      background: #e4e7ec;
+    }
+
+    button.danger {
+      background: var(--danger);
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .status {
+      margin-top: 12px;
+      color: var(--muted);
+      min-height: 20px;
+    }
+
+    .status.ok {
+      color: var(--ok);
+    }
+
+    .status.error {
+      color: var(--danger);
+    }
+
+    .rule-list {
+      height: calc(100vh - 186px);
+      min-height: 360px;
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .rule-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      padding: 9px 10px;
+      border-bottom: 1px solid #eaecf0;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .rule-item:last-child {
+      border-bottom: 0;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) auto;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .empty {
+      padding: 24px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .rule-list {
+        height: 420px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MRS 规则修改工具</h1>
+  </header>
+
+  <main>
+    <section>
+      <div class="field">
+        <label for="sourceFile">规则源文件</label>
+        <select id="sourceFile"></select>
+      </div>
+
+      <div class="field">
+        <label for="customPath">手动输入路径</label>
+        <input id="customPath" placeholder="例如 rules/my-domain.yaml">
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="format">源文件格式</label>
+          <select id="format">
+            <option value="">按扩展名判断</option>
+            <option value="yaml">yaml</option>
+            <option value="text">text</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="behavior">规则类型</label>
+          <select id="behavior">
+            <option value="domain">domain</option>
+            <option value="ipcidr">ipcidr</option>
+            <option value="classical">classical</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="loadBtn">加载规则</button>
+        <button class="secondary" id="dumpBtn">导出 MRS 为文本</button>
+        <button class="secondary" id="refreshBtn">刷新文件列表</button>
+      </div>
+
+      <hr>
+
+      <div class="field">
+        <label for="addRules">添加规则，每行一条</label>
+        <textarea id="addRules" placeholder="example.com&#10;+.example.org"></textarea>
+      </div>
+
+      <div class="actions">
+        <button id="addBtn">添加</button>
+      </div>
+
+      <hr>
+
+      <div class="field">
+        <label for="outputPath">输出 MRS 文件</label>
+        <input id="outputPath" placeholder="例如 generated/my-domain.mrs">
+      </div>
+      <div class="field">
+        <label for="mihomoPath">mihomo.exe 路径</label>
+        <input id="mihomoPath" placeholder="留空则使用 PATH 里的 mihomo">
+      </div>
+      <div class="actions">
+        <button id="buildBtn">生成 MRS</button>
+      </div>
+
+      <div id="status" class="status"></div>
+    </section>
+
+    <section>
+      <div class="toolbar">
+        <input id="filterText" placeholder="搜索当前规则">
+        <button class="secondary" id="clearFilterBtn">清空</button>
+      </div>
+      <div id="ruleList" class="rule-list">
+        <div class="empty">先选择源文件并加载规则</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const sourceFile = document.getElementById("sourceFile");
+    const customPath = document.getElementById("customPath");
+    const format = document.getElementById("format");
+    const behavior = document.getElementById("behavior");
+    const addRules = document.getElementById("addRules");
+    const outputPath = document.getElementById("outputPath");
+    const mihomoPath = document.getElementById("mihomoPath");
+    const statusBox = document.getElementById("status");
+    const ruleList = document.getElementById("ruleList");
+    const filterText = document.getElementById("filterText");
+
+    let currentRules = [];
+
+    function selectedPath() {
+      return customPath.value.trim() || sourceFile.value;
+    }
+
+    function payloadBase() {
+      return {
+        path: selectedPath(),
+        format: format.value || undefined,
+        behavior: behavior.value
+      };
+    }
+
+    function setStatus(message, kind = "") {
+      statusBox.textContent = message;
+      statusBox.className = `status ${kind}`;
+    }
+
+    function splitRules(value) {
+      return value
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter(Boolean);
+    }
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, {
+        headers: {"Content-Type": "application/json"},
+        ...options
+      });
+      const data = await response.json();
+      if (!response.ok || data.error) {
+        throw new Error(data.error || `请求失败：${response.status}`);
+      }
+      return data;
+    }
+
+    async function loadFiles() {
+      const data = await api("/api/files");
+      sourceFile.innerHTML = "";
+      data.files.forEach((file) => {
+        const option = document.createElement("option");
+        option.value = file;
+        option.textContent = file;
+        sourceFile.appendChild(option);
+      });
+      if (data.files.includes("rules.yaml")) {
+        sourceFile.value = "rules.yaml";
+      }
+      setStatus(`已加载 ${data.files.length} 个可选文件`, "ok");
+    }
+
+    async function loadRules() {
+      const path = selectedPath();
+      if (!path) {
+        setStatus("先选择或输入规则源文件", "error");
+        return;
+      }
+      if (path.toLowerCase().endsWith(".mrs")) {
+        setStatus("先点“导出 MRS 为文本”，再加载生成的文本文件", "error");
+        return;
+      }
+      const query = new URLSearchParams();
+      query.set("path", path);
+      if (format.value) query.set("format", format.value);
+      const data = await api(`/api/rules?${query.toString()}`);
+      currentRules = data.rules;
+      customPath.value = data.path;
+      if (data.behavior) behavior.value = data.behavior;
+      renderRules();
+      setStatus(`已加载 ${currentRules.length} 条规则`, "ok");
+    }
+
+    async function dumpMrs() {
+      const source = selectedPath();
+      if (!source || !source.toLowerCase().endsWith(".mrs")) {
+        setStatus("先选择或输入 .mrs 文件", "error");
+        return;
+      }
+      const output = `${source}.txt`;
+      const data = await api("/api/dump", {
+        method: "POST",
+        body: JSON.stringify({
+          source,
+          output,
+          behavior: behavior.value === "ipcidr" ? "ipcidr" : "domain",
+          mihomo: mihomoPath.value.trim() || undefined
+        })
+      });
+      customPath.value = data.output;
+      format.value = "text";
+      await loadRules();
+      outputPath.value = source;
+      setStatus(`已导出到 ${data.output}，修改后可生成覆盖 ${source}`, "ok");
+    }
+
+    async function updateRules(add, remove) {
+      const body = {...payloadBase(), add, remove};
+      const data = await api("/api/update", {
+        method: "POST",
+        body: JSON.stringify(body)
+      });
+      currentRules = data.rules;
+      renderRules();
+      setStatus(data.changed ? "已写入规则源文件" : "没有变化", "ok");
+    }
+
+    async function buildMrs() {
+      const source = selectedPath();
+      const output = outputPath.value.trim();
+      if (!source || !output) {
+        setStatus("源文件和输出 MRS 文件都要填写", "error");
+        return;
+      }
+      const data = await api("/api/build", {
+        method: "POST",
+        body: JSON.stringify({
+          source,
+          output,
+          format: format.value || undefined,
+          behavior: behavior.value,
+          mihomo: mihomoPath.value.trim() || undefined
+        })
+      });
+      setStatus(`已生成 ${data.output}`, "ok");
+    }
+
+    function renderRules() {
+      const keyword = filterText.value.trim().toLowerCase();
+      const rules = keyword
+        ? currentRules.filter((rule) => rule.toLowerCase().includes(keyword))
+        : currentRules;
+
+      if (!rules.length) {
+        ruleList.innerHTML = '<div class="empty">没有匹配的规则</div>';
+        return;
+      }
+
+      ruleList.innerHTML = "";
+      rules.forEach((rule) => {
+        const item = document.createElement("div");
+        item.className = "rule-item";
+
+        const text = document.createElement("span");
+        text.textContent = rule;
+
+        const button = document.createElement("button");
+        button.className = "danger";
+        button.textContent = "删除";
+        button.addEventListener("click", async () => {
+          try {
+            await updateRules([], [rule]);
+          } catch (error) {
+            setStatus(error.message, "error");
+          }
+        });
+
+        item.append(text, button);
+        ruleList.appendChild(item);
+      });
+    }
+
+    document.getElementById("refreshBtn").addEventListener("click", async () => {
+      try {
+        await loadFiles();
+      } catch (error) {
+        setStatus(error.message, "error");
+      }
+    });
+
+    document.getElementById("loadBtn").addEventListener("click", async () => {
+      try {
+        await loadRules();
+      } catch (error) {
+        setStatus(error.message, "error");
+      }
+    });
+
+    document.getElementById("dumpBtn").addEventListener("click", async () => {
+      try {
+        await dumpMrs();
+      } catch (error) {
+        setStatus(error.message, "error");
+      }
+    });
+
+    document.getElementById("addBtn").addEventListener("click", async () => {
+      const rules = splitRules(addRules.value);
+      if (!rules.length) {
+        setStatus("先填写要添加的规则", "error");
+        return;
+      }
+      try {
+        await updateRules(rules, []);
+        addRules.value = "";
+      } catch (error) {
+        setStatus(error.message, "error");
+      }
+    });
+
+    document.getElementById("buildBtn").addEventListener("click", async () => {
+      try {
+        await buildMrs();
+      } catch (error) {
+        setStatus(error.message, "error");
+      }
+    });
+
+    filterText.addEventListener("input", renderRules);
+    document.getElementById("clearFilterBtn").addEventListener("click", () => {
+      filterText.value = "";
+      renderRules();
+    });
+
+    loadFiles().catch((error) => setStatus(error.message, "error"));
+  </script>
+</body>
+</html>

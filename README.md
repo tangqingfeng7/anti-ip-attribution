@@ -33,6 +33,58 @@ Clash for Windows 已于 2023.11.2 (UTC+8) 删库，将不再积极支持`parser
 
 本仓库使用 GitHub Actions 从`rules.yaml`与`CloudMusic.yaml`中生成配置文件，详见`generate.py`。
 
+## MRS 规则修改工具
+
+`.mrs` 是 mihomo 的二进制规则集，不适合直接手写修改。仓库提供了一个小工具，用来修改可读的 YAML/text 源文件，再调用 mihomo 重新生成 `.mrs`。
+
+启动可视化页面：
+
+```powershell
+python .\tools\mrs_server.py
+```
+
+然后打开：
+
+```text
+http://127.0.0.1:8765/
+```
+
+查看和修改已有 `.mrs`：
+
+1. 选择 `Games.mrs`。
+2. 规则类型选 `domain`。
+3. 点 `导出 MRS 为文本`，会生成 `Games.mrs.txt`。
+4. 在页面里编辑 `Games.mrs.txt`。
+5. 输出 MRS 文件填 `Games.mrs`。
+6. 点 `生成 MRS`，会重新生成并覆盖 `Games.mrs`。
+
+示例：
+
+```powershell
+# 添加域名规则
+python .\tools\mrs_tool.py add .\my-domain.yaml example.com +.example.org --behavior domain
+
+# 删除域名规则
+python .\tools\mrs_tool.py remove .\my-domain.yaml old.example --behavior domain
+
+# 从 YAML 源文件生成 MRS
+python .\tools\mrs_tool.py build .\my-domain.yaml .\my-domain.mrs --behavior domain --mihomo C:\path\to\mihomo.exe
+
+# 添加后立即生成 MRS
+python .\tools\mrs_tool.py add .\my-ip.yaml 1.1.1.0/24 --behavior ipcidr --compile .\my-ip.mrs --mihomo C:\path\to\mihomo.exe
+
+# 把已有 MRS 导出成可编辑文本
+python .\tools\mrs_tool.py dump .\Games.mrs .\Games.mrs.txt --behavior domain --mihomo C:\path\to\mihomo.exe
+```
+
+YAML 源文件格式：
+
+```yaml
+payload:
+  - example.com
+  - +.example.org
+```
+
 ## PR & 贡献
 
 仓库所有者和开发者的能力不能保证持续、高效维护地此仓库。如若发现改进或更好的方案，欢迎 PR。
